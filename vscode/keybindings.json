@@ -99,5 +99,13 @@
 		"key": "ctrl+shift+alt+down",
 		"command": "-editor.action.copyLinesDownAction",
 		"when": "editorTextFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+alt+s",
+		"command": "workbench.action.files.saveFiles"
+	},
+	{
+		"key": "ctrl+[Backquote]",
+		"command": "workbench.action.terminal.toggleTerminal"
 	}
 ]

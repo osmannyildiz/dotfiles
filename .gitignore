@@ -1,1 +1,2 @@
-_gitignore/
+_gitignored/
+bash/secret.bashrc

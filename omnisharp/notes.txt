@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/49136015/vscode-format-curly-brackets-on-the-same-line-c-sharp
