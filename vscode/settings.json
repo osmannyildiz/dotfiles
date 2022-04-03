@@ -1,6 +1,6 @@
 {
 	/* VISUAL */
-	"workbench.colorTheme": "Aura Dark (Soft Text)",
+	"workbench.colorTheme": "Bearded Theme Monokai Black",
 	"window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.untitled.hint": "hidden",
@@ -23,6 +23,7 @@
 	"editor.linkedEditing": true,
 	"explorer.compactFolders": false,
 	"explorer.autoReveal": false,
+	"github.gitAuthentication": false,
 	"files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
@@ -50,8 +51,7 @@
 	"editor.minimap.renderCharacters": false,
 	"editor.minimap.maxColumn": 80,
 	/* PYTHON EXTENSION */
-	// "python.defaultInterpreterPath": "python3",
-	// "python.defaultInterpreterPath": "/usr/bin/python3",
+	"python.defaultInterpreterPath": "/usr/local/bin/python3.10",
 	"python.analysis.completeFunctionParens": true,
 	/* LANGUAGE-SPECIFIC */
 	"[python]": {
@@ -126,4 +126,15 @@
 	"css.hover.references": false,
 	"less.hover.references": false,
 	"scss.hover.references": false,
+	"terminal.integrated.enableFileLinks": false,
+	"terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+	"terminal.integrated.showExitAlert": false,
+	"terminal.integrated.showLinkHover": false,
+	"terminal.integrated.tabs.focusMode": "singleClick",
+	"liveServer.settings.donotShowInfoMsg": true,
+	"code-runner.clearPreviousOutput": true,
+	"code-runner.fileDirectoryAsCwd": true,
+	"code-runner.saveFileBeforeRun": true,
+	"path-intellisense.extensionOnImport": true,
+	"tabnine.experimentalAutoImports": true,
 }
