@@ -137,4 +137,5 @@
 	"code-runner.saveFileBeforeRun": true,
 	"path-intellisense.extensionOnImport": true,
 	"tabnine.experimentalAutoImports": true,
+	"workbench.editor.languageDetection": false,
 }

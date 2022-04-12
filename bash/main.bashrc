@@ -1,8 +1,7 @@
-source ~/.my-bash-config/variables.bashrc
-source ~/.my-bash-config/options.bashrc
-source ~/.my-bash-config/aliases.bashrc
-if [ -f ~/.my-bash-config/secret.bashrc ]; then
-	source ~/.my-bash-config/secret.bashrc
+source $DOTFILES_DIR/bash/variables.bashrc
+source $DOTFILES_DIR/bash/options.bashrc
+source $DOTFILES_DIR/bash/aliases.bashrc
+if [ -f $DOTFILES_DIR/bash/secret.bashrc ]; then
+	source $DOTFILES_DIR/bash/secret.bashrc
 fi
-source ~/.my-bash-config/welcome.bashrc
-
+source $DOTFILES_DIR/bash/welcome.bashrc

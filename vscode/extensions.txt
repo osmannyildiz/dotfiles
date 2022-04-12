@@ -24,6 +24,7 @@ karyfoundation.theme-karyfoundation-themes
 Luke-zhang-04.processing-vscode
 mechatroner.rainbow-csv
 mitchdenny.ecdc
+mongodb.mongodb-vscode
 ms-azuretools.vscode-docker
 ms-dotnettools.csharp
 ms-python.python

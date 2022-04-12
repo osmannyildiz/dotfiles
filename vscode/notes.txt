@@ -1,1 +1,1 @@
-code --list-extensions > extensions.txt
+code --list-extensions >| extensions.txt
