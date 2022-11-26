@@ -1,12 +1,5 @@
-case $(expr $RANDOM % 3) in
+case $(expr $RANDOM % 2) in
 	0)
-		echo ""
-		echo "  =------------------------="
-		echo "  | No rain, no rainbow 🌈 |"
-		echo "  =------------------------="
-		echo ""
-	;;
-	1)
 		# Based on art by Hayley Jane Wakenshaw
 		echo ""
 		echo "                           /)"
@@ -16,7 +9,7 @@ case $(expr $RANDOM % 3) in
 		echo "----------------{_}'-^-'{_}-----------------------------------------------------"
 		echo ""
 	;;
-	2)
+	1)
 		# Based on art by Blazej Kozlowski
 		echo ""
 		echo "             _ "
@@ -32,10 +25,17 @@ case $(expr $RANDOM % 3) in
 		echo "               '  \`+.;  ;  '      : "
 		echo "               :  '  |    ;       ;-. "
 		echo "               ; '   : :\`-:     _.\`* ; "
-		echo "   [bug]    .*' /  .*' ; .*\`- +'  \`*' "
+		echo "   <bug>    .*' /  .*' ; .*\`- +'  \`*' "
 		echo "            \`*-*   \`*-*  \`*-*' "
 		echo ""
 	;;
+	# 2)
+	# 	echo ""
+	# 	echo "  =------------------------="
+	# 	echo "  | No rain, no rainbow 🌈 |"
+	# 	echo "  =------------------------="
+	# 	echo ""
+	# ;;
 	*)
 		echo "amogus"
 	;;

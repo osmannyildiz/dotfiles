@@ -1,6 +1,6 @@
 {
 	/* VISUAL */
-	"workbench.colorTheme": "Bearded Theme Monokai Black",
+	"workbench.colorTheme": "Ayu Dark Bordered",
 	"window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.untitled.hint": "hidden",
@@ -11,13 +11,16 @@
 	"editor.bracketPairColorization.enabled": true,
 	"editor.guides.bracketPairs": false,
 	// "powermode.enabled": true,
-	// "powermode.enableShake": false,
+	// "powermode.shake.enabled": false,
 	// "powermode.explosionFrequency": 1,
 	// "powermode.explosionSize": 12,
+	// "powermode.combo.location": "off",
+	// "powermode.shake.intensity": 2,
 	/* BEHAVIOR */
 	"files.hotExit": "onExitAndWindowClose",
 	"window.restoreWindows": "preserve",
 	"workbench.startupEditor": "none",
+	"workbench.editor.languageDetection": false,
 	"editor.copyWithSyntaxHighlighting": false,
 	"editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
 	"editor.linkedEditing": true,
@@ -42,9 +45,9 @@
 	// "editor.acceptSuggestionOnEnter": "off",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	/* INDENTATION */
-	"editor.detectIndentation": false,  // Use manual values for editor.tabSize and editor.insertSpaces
+	"editor.detectIndentation": false, // Use manual values for editor.tabSize and editor.insertSpaces
 	// editor.tabSize is 4 by default
-	"editor.insertSpaces": false,  // Use tabs by default
+	"editor.insertSpaces": false, // Use tabs by default
 	/* MINIMAP */
 	"editor.minimap.size": "fit",
 	"editor.minimap.showSlider": "always",
@@ -52,15 +55,18 @@
 	"editor.minimap.maxColumn": 80,
 	/* PYTHON EXTENSION */
 	"python.defaultInterpreterPath": "/usr/local/bin/python3.10",
+	"python.formatting.provider": "black",
 	"python.analysis.completeFunctionParens": true,
+	"python.analysis.autoImportCompletions": true,
 	/* LANGUAGE-SPECIFIC */
 	"[python]": {
+		// "editor.formatOnSave": true,
 		"editor.insertSpaces": true,
 		"editor.stickyTabStops": true,
 		"files.trimTrailingWhitespace": true,
 		// Following 2 lines ensure that there will be exactly one \n at the end of the file
 		"files.trimFinalNewlines": true,
-		"files.insertFinalNewline": true,
+		"files.insertFinalNewline": true
 	},
 	"[html][vue]": {
 		"editor.tabSize": 2,
@@ -69,29 +75,29 @@
 	},
 	"[css][scss]": {
 		"editor.tabSize": 2,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"[javascript][typescript]": {
+	"[javascript][typescript][javascriptreact][typescriptreact]": {
 		"editor.tabSize": 2,
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": true
 		},
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"[json]": {
+	"[json][jsonc]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[php]": {
 		"editor.tabSize": 2,
+		"files.trimTrailingWhitespace": true
 	},
 	"[dart]": {
 		"editor.formatOnSave": true,
 		"editor.formatOnType": true,
-		"editor.rulers": [
-			80
-		],
+		"editor.rulers": [80],
 		"editor.selectionHighlight": false,
 		"editor.suggest.snippetsPreventQuickSuggestions": false,
 		"editor.suggestSelection": "first",
@@ -102,14 +108,18 @@
 		"editor.formatOnSave": true,
 		"editor.formatOnType": true
 	},
-	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter.notebook.ipynb"
+	"[rust]": {
+		"files.trimTrailingWhitespace": true,
+		"files.trimFinalNewlines": true,
+		"files.insertFinalNewline": true
 	},
+	// "workbench.editorAssociations": {
+	// 	"*.ipynb": "jupyter.notebook.ipynb"
+	// },
 	"gitlens.currentLine.enabled": false,
 	"gitlens.codeLens.enabled": false,
 	"gitlens.statusBar.enabled": false,
 	"gitlens.hovers.enabled": false,
-	"diffEditor.ignoreTrimWhitespace": true,
 	"prettier.useTabs": true,
 	"editor.unicodeHighlight.allowedCharacters": {
 		"ı": true
@@ -137,5 +147,10 @@
 	"code-runner.saveFileBeforeRun": true,
 	"path-intellisense.extensionOnImport": true,
 	"tabnine.experimentalAutoImports": true,
-	"workbench.editor.languageDetection": false,
+	"editor.stickyScroll.enabled": true,
+	"vscode-json-editor.theme": "dark",
+	"files.associations": {
+		".env*": "dotenv"
+	},
+	"diffEditor.ignoreTrimWhitespace": false
 }
