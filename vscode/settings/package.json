@@ -7,7 +7,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "node src/build.js",
-		"buildForLinux": "node src/build.js linux python web"
+		"buildForLinux": "node src/build.js linux python web",
+		"buildForMacos": "node src/build.js macos web"
 	},
 	"keywords": [],
 	"author": "",
