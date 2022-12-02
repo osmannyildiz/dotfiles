@@ -1,0 +1,5 @@
+echo ""
+echo "  =--------------="
+echo "  | Hello world! |"
+echo "  =--------------="
+echo ""
