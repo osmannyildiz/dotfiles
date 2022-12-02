@@ -33,6 +33,23 @@ alias httpie='http -v --follow'
 
 alias ssh-sunucu="ssh $SUNUCU_USER@$SUNUCU_HOST -p $SUNUCU_PORT"
 
+## Git-related aliases
+alias gcl="git clone"
+gcl-sunucu() { gcl ssh://mygituser@$SUNUCU_HOST:$SUNUCU_PORT/~/repos/$1.git; }
+alias gl="git log"
+alias gs="git status"
+alias gi="git init"
+alias ga="git add"
+alias ga.="git add ."
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gps="git push"
+alias gpl="git pull"
+alias gco="git checkout"
+alias gb="git branch"
+alias gr="git remote"
+alias gd="git diff"
+
 ## Python-related aliases
 alias py='python3.10'
 # alias ptp='py -m ptpython'
