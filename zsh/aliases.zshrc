@@ -11,7 +11,6 @@ alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{
 
 ## Git-related aliases
 alias gcl="git clone"
-gcl-sunucu() { gcl ssh://mygituser@$SUNUCU_HOST:$SUNUCU_PORT/~/repos/$1.git; }
 alias gl="git log"
 alias gs="git status"
 alias gi="git init"
@@ -27,4 +26,5 @@ alias gco="git checkout"
 alias gb="git branch"
 alias gr="git remote"
 alias gd="git diff"
+alias gdc="git diff --cached"
 

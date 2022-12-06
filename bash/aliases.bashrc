@@ -51,6 +51,7 @@ alias gco="git checkout"
 alias gb="git branch"
 alias gr="git remote"
 alias gd="git diff"
+alias gdc="git diff --cached"
 
 ## Python-related aliases
 alias py='python3.10'
