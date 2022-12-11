@@ -20,9 +20,9 @@ export default {
 		"**/.factorypath": true,
 		"**/__pycache__": true,
 	},
-	// "editor.unicodeHighlight.allowedCharacters": {
-	// 	"ı": true
-	// },
+	"editor.unicodeHighlight.allowedCharacters": {
+		ı: true,
+	},
 
 	// ===== INDENTATION =====
 	"editor.detectIndentation": false, // Use manual values for editor.tabSize and editor.insertSpaces
