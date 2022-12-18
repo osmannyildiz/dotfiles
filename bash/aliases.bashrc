@@ -31,11 +31,8 @@ alias c.='code . && exit'
 alias httpie='http -v --follow'
 # lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
 
-alias ssh-sunucu="ssh $SUNUCU_USER@$SUNUCU_HOST -p $SUNUCU_PORT"
-
 ## Git-related aliases
 alias gcl="git clone"
-gcl-sunucu() { gcl ssh://mygituser@$SUNUCU_HOST:$SUNUCU_PORT/~/repos/$1.git; }
 alias gl="git log"
 alias gs="git status"
 alias gi="git init"
