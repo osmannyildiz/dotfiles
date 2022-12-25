@@ -1,12 +1,12 @@
 {
-	"name": "vscode-settings",
+	"name": "vscode-keybindings",
 	"version": "1.0.0",
 	"description": "",
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"build:linux": "node src/build.js linux",
-		"build:macos": "node src/build.js macos"
+		"build:regular": "node src/build.js regular",
+		"build:mac": "node src/build.js mac"
 	},
 	"keywords": [],
 	"author": "",

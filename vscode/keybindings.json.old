@@ -56,12 +56,12 @@
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "shift+alt+up",
+		"key": "ctrl+shift+up",
 		"command": "-editor.action.insertCursorAbove",
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "ctrl+shift+up",
+		"key": "shift+alt+up",
 		"command": "-editor.action.insertCursorAbove",
 		"when": "editorTextFocus"
 	},
@@ -71,12 +71,12 @@
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "shift+alt+down",
+		"key": "ctrl+shift+down",
 		"command": "-editor.action.insertCursorBelow",
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "ctrl+shift+down",
+		"key": "shift+alt+down",
 		"command": "-editor.action.insertCursorBelow",
 		"when": "editorTextFocus"
 	},

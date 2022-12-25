@@ -88,6 +88,7 @@ vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
 Vue.volar
+Vue.vscode-typescript-vue-plugin
 Wscats.vue
 xabikos.JavaScriptSnippets
 zehfernando.theme-actual-obsidian

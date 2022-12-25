@@ -7,7 +7,7 @@ const BUILD_DIR_PATH = dirname(fileURLToPath(import.meta.url)) + "/../dist";
 
 async function writeToFile(result) {
 	const resultJson = JSON.stringify(result, undefined, "\t");
-	await fs.writeFile(`${BUILD_DIR_PATH}/settings.json`, resultJson);
+	await fs.writeFile(`${BUILD_DIR_PATH}/keybindings.json`, resultJson);
 }
 
 const preset = process.argv[2];
