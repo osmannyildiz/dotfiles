@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOTFILES_PATH="$HOME/caylak/dotfiles"
-VSCODE_USER_PATH="$HOME/.config/Code/User"
+DOTFILES_PATH="$HOME/portakal/dotfiles"
+VSCODE_USER_PATH="$HOME/Library/Application Support/Code/User"
 
 mv "$VSCODE_USER_PATH/settings.json" "$VSCODE_USER_PATH/settings.json.old"
 ln -s "$DOTFILES_PATH/vscode/settings/dist/settings.json" "$VSCODE_USER_PATH/settings.json"

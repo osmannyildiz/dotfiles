@@ -1,6 +1,6 @@
 alias q='exit'
-alias l='ls -AC --group-directories-first'
-alias ll='ls -Alh --group-directories-first'
+alias l='ls -AC'
+alias ll='ls -Alh'
 alias cls='clear'
 alias csum='sha256sum'
 alias c.='code . && exit'
