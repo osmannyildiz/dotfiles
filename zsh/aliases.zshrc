@@ -3,7 +3,8 @@ alias l='ls -AC'
 alias ll='ls -Alh'
 alias cls='clear'
 alias csum='sha256sum'
-alias c.='code . && exit'
+alias c.='codium . && exit'
+alias vsc.='code . && exit'
 
 ## Print local IP
 alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=  netmask)"'

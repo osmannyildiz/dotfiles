@@ -6,7 +6,8 @@
 	"main": "index.js",
 	"scripts": {
 		"build:linux": "node src/build.js linux",
-		"build:macos": "node src/build.js macos"
+		"build:macos": "node src/build.js macos",
+		"build:work": "node src/build.js work work"
 	},
 	"keywords": [],
 	"author": "",
