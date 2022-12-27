@@ -65,6 +65,68 @@ export default [
 	// 	when: "textInputFocus && !editorReadonly",
 	// },
 
+	// ===== CAMELHUMPS =====
+	{
+		key: "ctrl+right",
+		command: "cursorWordPartRight",
+		when: "textInputFocus"
+	},
+	{
+		key: "ctrl+right",
+		command: "-cursorWordEndRight",
+		when: "textInputFocus"
+	},
+	{
+		key: "ctrl+shift+right",
+		command: "cursorWordPartRightSelect",
+		when: "textInputFocus",
+	},
+	{
+		key: "ctrl+shift+right",
+		command: "-cursorWordEndRightSelect",
+		when: "textInputFocus",
+	},
+	{
+		key: "ctrl+left",
+		command: "cursorWordPartLeft",
+		when: "textInputFocus"
+	},
+	{
+		key: "ctrl+left",
+		command: "-cursorWordLeft",
+		when: "textInputFocus"
+	},
+	{
+		key: "ctrl+shift+left",
+		command: "cursorWordPartLeftSelect",
+		when: "textInputFocus",
+	},
+	{
+		key: "ctrl+shift+left",
+		command: "-cursorWordLeftSelect",
+		when: "textInputFocus",
+	},
+	{
+		key: "ctrl+backspace",
+		command: "deleteWordPartLeft",
+		when: "textInputFocus && !editorReadonly",
+	},
+	{
+		key: "ctrl+backspace",
+		command: "-deleteWordLeft",
+		when: "textInputFocus && !editorReadonly",
+	},
+	{
+		key: "ctrl+delete",
+		command: "deleteWordPartRight",
+		when: "textInputFocus && !editorReadonly",
+	},
+	{
+		key: "ctrl+delete",
+		command: "-deleteWordRight",
+		when: "textInputFocus && !editorReadonly",
+	},
+
 	// ===== TOGGLE LINE COMMENT =====
 	{
 		key: "ctrl+numpad_divide",
