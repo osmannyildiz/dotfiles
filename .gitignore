@@ -1,2 +1,3 @@
 _gitignored/
 bash/secrets.bashrc
+zsh/secrets.zshrc
