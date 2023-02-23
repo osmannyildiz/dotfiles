@@ -65,7 +65,7 @@ py-run() {
 	py "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
 }
 
-## Aliases related to my server
+## Aliases related to myserver
 alias myserver="ssh $MYSERVER_USER_MYUSER@$MYSERVER_HOST -p $MYSERVER_PORT -i $MYSERVER_PRIVKEY_MYUSER"
 alias myserver-git="ssh $MYSERVER_USER_GIT@$MYSERVER_HOST -p $MYSERVER_PORT"
 gcl-myserver() { git clone ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST:$MYSERVER_PORT/~/repos/$1.git; }
