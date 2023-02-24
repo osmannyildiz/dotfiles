@@ -74,6 +74,15 @@ gra-myserver() { git remote add myserver ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST
 ##### ALIASES END #####
 
 
+##### PROMPT BEGIN #####
+
+PS1='
+%n@%m : %~
+%% '
+
+##### PROMPT END #####
+
+
 ##### WELCOME BEGIN #####
 
 # Art by Joan Stark
