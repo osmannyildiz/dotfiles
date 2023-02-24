@@ -15,3 +15,16 @@ source "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/main.bashrc"
 #
 ```
 
+For the profile "(zsh) personal macos", add this to the `.zshrc`:
+```sh
+#
+###
+#####
+DOTFILES_DIR="$HOME/aa/dotfiles"
+DOTFILES_SHELL_PROFILE="(zsh) personal macos"
+source "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/main.zshrc"
+#####
+###
+#
+```
+
