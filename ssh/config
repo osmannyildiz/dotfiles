@@ -1,0 +1,4 @@
+# https://unix.stackexchange.com/questions/2010/what-does-the-broken-pipe-message-mean-in-an-ssh-session
+ServerAliveInterval 30
+ServerAliveCountMax 3
+
