@@ -39,6 +39,7 @@ alias l='ls -AC'
 alias ll='ls -Alh'
 alias cls='clear'
 alias csum='sha256sum'
+csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
 alias c.='codium . && exit'
 alias vsc.='code . && exit'
 

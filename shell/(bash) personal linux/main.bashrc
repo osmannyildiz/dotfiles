@@ -117,6 +117,7 @@ alias l='ls -AC --group-directories-first'
 alias ll='ls -Alh --group-directories-first'
 alias cls='clear'
 alias csum='sha256sum'
+csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
 alias hib='systemctl hibernate'
 alias wifidriver-on='sudo modprobe iwlwifi'
 alias wifidriver-off='sudo modprobe -r iwlwifi'
