@@ -7,8 +7,8 @@
 
 ##### SECRETS BEGIN #####
 
-if [ -f "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/secrets.zshrc" ]; then
-	source "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/secrets.zshrc"
+if [ -f "$DOTFILES_DIR/local/secrets.zshrc" ]; then
+	source "$DOTFILES_DIR/local/secrets.zshrc"
 fi
 
 ##### SECRETS END #####

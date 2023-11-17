@@ -7,8 +7,8 @@
 
 ##### SECRETS BEGIN #####
 
-if [ -f "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/secrets.bashrc" ]; then
-	source "$DOTFILES_DIR/shell/$DOTFILES_SHELL_PROFILE/secrets.bashrc"
+if [ -f "$DOTFILES_DIR/local/secrets.bashrc" ]; then
+	source "$DOTFILES_DIR/local/secrets.bashrc"
 fi
 
 ##### SECRETS END #####
