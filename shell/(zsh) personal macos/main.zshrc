@@ -37,7 +37,7 @@ LIP_INTERFACE=en0
 alias q='exit'
 alias l='ls -AC'
 alias ll='ls -Alh'
-alias cls='clear'
+# alias cls='clear' // USE CTRL+L
 alias csum='sha256sum'
 csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
 alias c.='codium . && exit'

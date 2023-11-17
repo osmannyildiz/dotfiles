@@ -115,7 +115,7 @@ shopt -s cdspell 2> /dev/null
 alias q='exit'
 alias l='ls -AC --group-directories-first'
 alias ll='ls -Alh --group-directories-first'
-alias cls='clear'
+# alias cls='clear' // USE CTRL+L
 alias csum='sha256sum'
 csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
 alias hib='systemctl hibernate'
