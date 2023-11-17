@@ -1,4 +1,8 @@
-export default [
+import type { KeybindingsChunk } from "../definitions";
+
+export const mac: KeybindingsChunk = [];
+
+export const regular: KeybindingsChunk = [
 	// ===== MULTI CURSOR =====
 	{
 		key: "ctrl+alt+up",
