@@ -1,0 +1,11 @@
+[init]
+	defaultBranch = main
+[user]
+	email = iamosmannyildiz@gmail.com
+	name = osmannyildiz
+[core]
+	excludesFile = ~/aa/dotfiles/git/.gitignore_global
+	ignorecase = false
+	editor = micro
+[alias]
+	uncommit = reset --soft HEAD^
