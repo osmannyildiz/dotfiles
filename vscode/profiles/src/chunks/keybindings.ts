@@ -1,6 +1,20 @@
 import type { KeybindingsChunk } from "../definitions";
 
-export const mac: KeybindingsChunk = [];
+export const mac: KeybindingsChunk = [
+	{
+		key: "ctrl+q",
+		command: "-workbench.action.quickOpenView",
+	},
+	{
+		key: "ctrl+q",
+		command: "workbench.action.quickOpenView",
+		when: "!terminalFocus",
+	},
+	{
+		key: "ctrl+cmd+p",
+		command: "workbench.action.quickTextSearch",
+	},
+];
 
 export const regular: KeybindingsChunk = [
 	// ===== MULTI CURSOR =====
@@ -73,12 +87,12 @@ export const regular: KeybindingsChunk = [
 	{
 		key: "ctrl+right",
 		command: "cursorWordPartRight",
-		when: "textInputFocus"
+		when: "textInputFocus",
 	},
 	{
 		key: "ctrl+right",
 		command: "-cursorWordEndRight",
-		when: "textInputFocus"
+		when: "textInputFocus",
 	},
 	{
 		key: "ctrl+shift+right",
@@ -93,12 +107,12 @@ export const regular: KeybindingsChunk = [
 	{
 		key: "ctrl+left",
 		command: "cursorWordPartLeft",
-		when: "textInputFocus"
+		when: "textInputFocus",
 	},
 	{
 		key: "ctrl+left",
 		command: "-cursorWordLeft",
-		when: "textInputFocus"
+		when: "textInputFocus",
 	},
 	{
 		key: "ctrl+shift+left",

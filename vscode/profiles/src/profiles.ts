@@ -15,37 +15,35 @@ export const tavsanMain: Profile = {
 		settingsChunks.macos,
 		{
 			basicSettings: {
-				"workbench.colorTheme": "Bearded Theme Altica",
+				"workbench.colorTheme": "monokai-charcoal",
 			},
 			objectSettings: {},
 			arraySettings: {},
-		}
+		},
 	],
-	keybindings: [
-		keybindingsChunks.mac,
-	],
-	snippets: [
-		snippetsChunks.main,
-	],
+	keybindings: [keybindingsChunks.mac],
+	snippets: [snippetsChunks.main],
 	extensions: [
 		extensionsChunks.base,
 		extensionsChunks.basePlus,
-		extensionsChunks.utilities,
 		extensionsChunks.themes,
 		extensionsChunks.themesPlus,
 		extensionsChunks.web,
 		extensionsChunks.webPlus,
 		extensionsChunks.js,
-		extensionsChunks.vue,
 		extensionsChunks.php,
 		extensionsChunks.python,
-	]
+		extensionsChunks.macos,
+		extensionsChunks.docker,
+		extensionsChunks.rust,
+	],
 };
 
 export const tavsanWork: Profile = {
 	name: "tavsan_Work",
 	settings: [
 		settingsChunks.base,
+		settingsChunks.work,
 		settingsChunks.web,
 		settingsChunks.macos,
 		{
@@ -54,19 +52,17 @@ export const tavsanWork: Profile = {
 			},
 			objectSettings: {},
 			arraySettings: {},
-		}
+		},
 	],
-	keybindings: [
-		keybindingsChunks.mac,
-	],
+	keybindings: [keybindingsChunks.mac],
 	snippets: [],
 	extensions: [
 		extensionsChunks.base,
-		extensionsChunks.utilities,
-		extensionsChunks.themes,
+		extensionsChunks.work,
 		extensionsChunks.web,
 		extensionsChunks.js,
-	]
+		["github.github-vscode-theme"],
+	],
 };
 
 export const caylakLMain: Profile = {
@@ -79,16 +75,11 @@ export const caylakLMain: Profile = {
 		settingsChunks.python,
 		settingsChunks.linux,
 	],
-	keybindings: [
-		keybindingsChunks.regular,
-	],
-	snippets: [
-		snippetsChunks.main,
-	],
+	keybindings: [keybindingsChunks.regular],
+	snippets: [snippetsChunks.main],
 	extensions: [
 		extensionsChunks.base,
 		extensionsChunks.basePlus,
-		extensionsChunks.utilities,
 		extensionsChunks.themes,
 		extensionsChunks.themesPlus,
 		extensionsChunks.web,
@@ -100,5 +91,5 @@ export const caylakLMain: Profile = {
 		extensionsChunks.cpp,
 		extensionsChunks.csharp,
 		extensionsChunks.processing,
-	]
+	],
 };

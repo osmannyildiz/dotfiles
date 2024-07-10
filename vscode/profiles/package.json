@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.ts",
 	"scripts": {
-		"build": "ts-node-esm index.ts build"
+		"build": "ts-node index.ts build"
 	},
 	"keywords": [],
 	"author": "osmannyildiz",

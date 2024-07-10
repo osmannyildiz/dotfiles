@@ -78,7 +78,7 @@ const buildSnippetsOfProfile = async (profile: Profile) => {
 		}
 	}
 
-	createDirInProfile(profile, "snippets");
+	await createDirInProfile(profile, "snippets");
 	for (const _languageId in mergedSnippets) {
 		const languageId = _languageId as LanguageId;
 		await writeJsonFileInProfile(profile, `snippets/${languageId}.json`, mergedSnippets[languageId]);
@@ -94,6 +94,7 @@ const buildExtensionsOfProfile = async (profile: Profile) => {
 		];
 	}
 
+	mergedExtensions.sort();
 	const content = mergedExtensions.join("\n");
 	await writeTextFileInProfile(profile, "extensions.txt", content);
 }

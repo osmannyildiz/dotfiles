@@ -29,16 +29,18 @@ interface SnippetsItem {
 export type ExtensionsChunk = string[];
 
 export type LanguageId =
-	"json" |
-	"jsonc" |
+	"csharp" |
+	"css" |
+	"dart" |
+	"html" |
 	"javascript" |
 	"javascriptreact" |
+	"json" |
+	"jsonc" |
+	"php" |
+	"python" |
+	"rust" |
+	"scss" |
 	"typescript" |
 	"typescriptreact" |
-	"python" |
-	"html" |
-	"vue" |
-	"css" |
-	"scss" |
-	"php" |
-	"csharp";
+	"vue";

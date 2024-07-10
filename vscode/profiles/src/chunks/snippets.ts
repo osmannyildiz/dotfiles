@@ -2,26 +2,26 @@ import type { SnippetsChunk } from "../definitions";
 
 const jsCommonSnippets = {
 	// "Log to console": {
-		// 	"prefix": "con",
-		// 	"body": [
-		// 		"console.log($0);"
-		// 	]
-		// }
+	// 	"prefix": "con",
+	// 	"body": [
+	// 		"console.log($0);"
+	// 	]
+	// }
 };
 
 export const main: SnippetsChunk = {
-	javascript: {
-		...jsCommonSnippets,
-	},
-	javascriptreact: {
-		...jsCommonSnippets,
-	},
-	typescript: {
-		...jsCommonSnippets,
-	},
-	typescriptreact: {
-		...jsCommonSnippets,
-	},
+	// javascript: {
+	// 	...jsCommonSnippets,
+	// },
+	// javascriptreact: {
+	// 	...jsCommonSnippets,
+	// },
+	// typescript: {
+	// 	...jsCommonSnippets,
+	// },
+	// typescriptreact: {
+	// 	...jsCommonSnippets,
+	// },
 	html: {
 		"Moustache": {
 			"prefix": "{",

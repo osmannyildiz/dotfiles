@@ -2,6 +2,7 @@ import { BUILD_DIR_PATH } from "./src/config";
 import { buildProfile, deleteDir } from "./src/lib";
 import * as profiles from "./src/profiles";
 
+// TODO Get these from the rest of argv
 const PROFILES_TO_BUILD = [profiles.tavsanMain, profiles.tavsanWork];
 
 main();
@@ -23,4 +24,4 @@ async function build() {
 	for (const profile of PROFILES_TO_BUILD) {
 		buildProfile(profile);
 	}
-};
+}
