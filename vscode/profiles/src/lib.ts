@@ -6,11 +6,14 @@ import type {
 	LanguageId,
 	Profile,
 	SettingsChunk,
-	SnippetsChunk
+	SnippetsChunk,
 } from "./definitions";
 
 export const buildProfile = async (profile: Profile) => {
-	await createDir(getDirPathForProfile(profile));
+	const profileDirPath = getDirPathForProfile(profile);
+	await deleteDir(profileDirPath);
+
+	await createDir(profileDirPath);
 	await buildSettingsOfProfile(profile);
 	await buildKeybindingsOfProfile(profile);
 	await buildSnippetsOfProfile(profile);
@@ -26,20 +29,20 @@ const buildSettingsOfProfile = async (profile: Profile) => {
 	for (const settingsChunk of profile.settings) {
 		mergedSettings.basicSettings = {
 			...mergedSettings.basicSettings,
-			...settingsChunk.basicSettings
+			...settingsChunk.basicSettings,
 		};
 
 		for (const objectSettingKey in settingsChunk.objectSettings) {
 			mergedSettings.objectSettings[objectSettingKey] = {
 				...mergedSettings.objectSettings[objectSettingKey],
-				...settingsChunk.objectSettings[objectSettingKey]
+				...settingsChunk.objectSettings[objectSettingKey],
 			};
 		}
 
 		for (const arraySettingKey in settingsChunk.arraySettings) {
 			mergedSettings.arraySettings[arraySettingKey] = [
 				...mergedSettings.arraySettings[arraySettingKey],
-				...settingsChunk.arraySettings[arraySettingKey]
+				...settingsChunk.arraySettings[arraySettingKey],
 			];
 		}
 	}
@@ -56,10 +59,7 @@ const buildKeybindingsOfProfile = async (profile: Profile) => {
 	let mergedKeybindings: KeybindingsChunk = [];
 	for (const keybindingsChunk of profile.keybindings) {
 		// Convert the square brackets below to curly brackets and watch TS not give an error :(
-		mergedKeybindings = [
-			...mergedKeybindings,
-			...keybindingsChunk
-		];
+		mergedKeybindings = [...mergedKeybindings, ...keybindingsChunk];
 	}
 
 	await writeJsonFileInProfile(profile, "keybindings.json", mergedKeybindings);
@@ -69,42 +69,51 @@ const buildSnippetsOfProfile = async (profile: Profile) => {
 	let mergedSnippets: SnippetsChunk = {};
 	for (const snippetsChunk of profile.snippets) {
 		for (const _languageId in snippetsChunk) {
-			const languageId = _languageId as LanguageId;  // Thanks TS :(
+			const languageId = _languageId as LanguageId; // Thanks TS :(
 			const snippetsForLanguage = snippetsChunk[languageId];
 			mergedSnippets[languageId] = {
 				...mergedSnippets[languageId],
-				...snippetsForLanguage
-			}
+				...snippetsForLanguage,
+			};
 		}
 	}
 
 	await createDirInProfile(profile, "snippets");
 	for (const _languageId in mergedSnippets) {
 		const languageId = _languageId as LanguageId;
-		await writeJsonFileInProfile(profile, `snippets/${languageId}.json`, mergedSnippets[languageId]);
+		await writeJsonFileInProfile(
+			profile,
+			`snippets/${languageId}.json`,
+			mergedSnippets[languageId]
+		);
 	}
-}
+};
 
 const buildExtensionsOfProfile = async (profile: Profile) => {
 	let mergedExtensions: ExtensionsChunk = [];
 	for (const extensionsChunk of profile.extensions) {
-		mergedExtensions = [
-			...mergedExtensions,
-			...extensionsChunk
-		];
+		mergedExtensions = [...mergedExtensions, ...extensionsChunk];
 	}
 
 	mergedExtensions.sort();
 	const content = mergedExtensions.join("\n");
 	await writeTextFileInProfile(profile, "extensions.txt", content);
-}
+};
 
-const writeJsonFileInProfile = async (profile: Profile, filePath: string, content: any) => {
+const writeJsonFileInProfile = async (
+	profile: Profile,
+	filePath: string,
+	content: any
+) => {
 	const contentJson = JSON.stringify(content, undefined, "\t");
 	await writeTextFileInProfile(profile, filePath, contentJson);
 };
 
-const writeTextFileInProfile = async (profile: Profile, filePath: string, content: string) => {
+const writeTextFileInProfile = async (
+	profile: Profile,
+	filePath: string,
+	content: string
+) => {
 	await fs.writeFile(`${getDirPathForProfile(profile)}/${filePath}`, content);
 };
 

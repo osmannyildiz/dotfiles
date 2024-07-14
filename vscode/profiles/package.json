@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.ts",
 	"scripts": {
-		"build": "ts-node index.ts build"
+		"cmd": "ts-node index.ts",
+		"build:panter": "ts-node index.ts build Main_macos Work_macos Web3_macos"
 	},
 	"keywords": [],
 	"author": "osmannyildiz",

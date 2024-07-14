@@ -30,20 +30,12 @@ export const base: ExtensionsChunk = [
 ];
 
 export const basePlus: ExtensionsChunk = [
-	"mrmlnc.vscode-apache", //                                Apache Conf (by mrmlnc)
-	"eiminsasete.apacheconf-snippets", //                     Apache Conf Snippets (by hrdtbs)
 	// "formulahendry.code-runner", //                           Code Runner (by Jun Han)
 	"streetsidesoftware.code-spell-checker", //               Code Spell Checker (by Street Side Software)
 	"vadimcn.vscode-lldb", //                                 CodeLLDB (by Vadim Chugunov)
 	"sj0000e.hexdiff", //                                     hexdiff (by sj0000e)
-	"ms-vscode.makefile-tools", //                            Makefile Tools (by Microsoft)
-	"mongodb.mongodb-vscode", //                              MongoDB for VS Code (by MongoDB)
-	"ahmadalli.vscode-nginx-conf", //                         NGINX Configuration Language Support (by ahmadalli)
 	// "hoovercj.vscode-power-mode", //                          Power Mode (by Cody Hoover)
-	"mtxr.sqltools", //                                       SQLTools (by Matheus Teixeira)
-	"hangxingliu.vscode-systemd-support", //                  Systemd Helper (by Liu Yue)
 	// "tabnine.tabnine-vscode", //                              Tabnine AI (by TabNine)
-	"bmuskalla.vscode-tldr", //                               tl;dr pages (by Benjamin Muskalla)
 	// "zxh404.vscode-proto3", //                                vscode-proto3 (by zxh404)
 ];
 
@@ -61,16 +53,15 @@ export const web3: ExtensionsChunk = [
 export const themes: ExtensionsChunk = [
 	"daltonmenezes.aura-theme", //                            Aura Theme (by Dalton Menezes)
 	"teabyii.ayu", //                                         Ayu (by teabyii)
+	"beardedbear.beardedtheme", //                            Bearded Theme (by BeardedBear)
 	"dracula-theme.theme-dracula", //                         Dracula Official (by Dracula Theme)
 	"github.github-vscode-theme", //                          GitHub Theme (by GitHub)
 	"74th.monokai-charcoal-high-contrast", //                 Monokai Charcoal high contrast
-	"tinkertrain.theme-panda", //                             Panda Theme (by Panda Theme)
-	"tyriar.theme-sapphire", //                               Sapphire Theme (by Daniel Imms)
+	"gonnadostuff.njdark", //                                 NJDark (by GonnaDoStuff)
 ];
 
 export const themesPlus: ExtensionsChunk = [
 	"zehfernando.theme-actual-obsidian", //                   (Actual) Obsidian (by Zeh Fernando)
-	"beardedbear.beardedtheme", //                            Bearded Theme (by BeardedBear)
 	"connor4312.codesong", //                                 codesong (by Connor Peet)
 	// "equinusocio.vsc-community-material-theme", //            Community Material Theme (by Equinusocio)
 	"karyfoundation.theme-karyfoundation-themes", //          Kary Pro Colors (by Pouya Kary)
@@ -78,9 +69,10 @@ export const themesPlus: ExtensionsChunk = [
 	// "equinusocio.vsc-material-theme", //                      Material Theme (by Equinusocio)
 	"equinusocio.moxer-icons", //                             Moxer Icons (by Equinusocio)
 	"equinusocio.moxer-theme", //                             Moxer Theme (by Equinusocio)
-	"gonnadostuff.njdark", //                                 NJDark (by GonnaDoStuff)
-	"zhuangtongfa.material-theme", //                         One Dark Pro (by binaryify)
+	// "zhuangtongfa.material-theme", //                         One Dark Pro (by binaryify)
+	"tinkertrain.theme-panda", //                             Panda Theme (by Panda Theme)
 	"hedinne.popping-and-locking-vscode", //                  Popping and Locking Theme (by .hedinne)
+	"tyriar.theme-sapphire", //                               Sapphire Theme (by Daniel Imms)
 	"enkia.tokyo-night", //                                   Tokyo Night (by enkia)
 ];
 
@@ -113,6 +105,20 @@ export const js: ExtensionsChunk = [
 	"yoavbls.pretty-ts-errors", //                            Pretty TypeScript Errors (by yoavbis)
 ];
 
+export const db: ExtensionsChunk = [
+	"mongodb.mongodb-vscode", //                              MongoDB for VS Code (by MongoDB)
+	"mtxr.sqltools", //                                       SQLTools (by Matheus Teixeira)
+];
+
+export const devops: ExtensionsChunk = [
+	"mrmlnc.vscode-apache", //                                Apache Conf (by mrmlnc)
+	"eiminsasete.apacheconf-snippets", //                     Apache Conf Snippets (by hrdtbs)
+	"ms-vscode.makefile-tools", //                            Makefile Tools (by Microsoft)
+	"ahmadalli.vscode-nginx-conf", //                         NGINX Configuration Language Support (by ahmadalli)
+	"hangxingliu.vscode-systemd-support", //                  Systemd Helper (by Liu Yue)
+	"bmuskalla.vscode-tldr", //                               tl;dr pages (by Benjamin Muskalla)
+];
+
 export const docker: ExtensionsChunk = [
 	// "jeff-hykin.better-dockerfile-syntax", //                 Better DockerFile Syntax (by Jeff Hykin)
 	"ms-azuretools.vscode-docker", //                         Docker (by Microsoft)
@@ -120,11 +126,13 @@ export const docker: ExtensionsChunk = [
 	// "ms-kubernetes-tools.vscode-kubernetes-tools", //         Kubernetes (by Microsoft)
 ];
 
-// ===== OS-SPECIFIC =====
-
-export const macos: ExtensionsChunk = [
+export const macosDev: ExtensionsChunk = [
 	"idleberg.applescript", //                                AppleScript (by idleberg)
 ];
+
+// ===== OS-SPECIFIC =====
+
+export const macos: ExtensionsChunk = [];
 
 export const windows: ExtensionsChunk = [];
 
@@ -187,6 +195,7 @@ export const python: ExtensionsChunk = [
 	"ms-toolsai.vscode-jupyter-slideshow", //                 Jupyter Slide Show (by Microsoft)
 	"ms-python.vscode-pylance", //                            Pylance (by Microsoft)
 	"ms-python.python", //                                    Python (by Microsoft)
+	"ms-python.debugpy", //                                   Python Debugger (by Microsoft)
 ];
 
 export const rust: ExtensionsChunk = [

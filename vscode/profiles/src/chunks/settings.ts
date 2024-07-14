@@ -171,7 +171,7 @@ export const basePlus: SettingsChunk = {
 
 export const work: SettingsChunk = {
 	basicSettings: {
-		"bootstrapAutocomplete.version": "4.5.2",
+		"bootstrapAutocomplete.version": "4.5",
 		"peacock.favoriteColors": [
 			{
 				name: "Angular Red",

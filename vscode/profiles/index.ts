@@ -1,27 +1,42 @@
-import { BUILD_DIR_PATH } from "./src/config";
-import { buildProfile, deleteDir } from "./src/lib";
-import * as profiles from "./src/profiles";
-
-// TODO Get these from the rest of argv
-const PROFILES_TO_BUILD = [profiles.tavsanMain, profiles.tavsanWork];
+import { buildProfile } from "./src/lib";
+import { profiles } from "./src/profiles";
 
 main();
 
 async function main() {
 	const command = process.argv[2];
 	switch (command) {
+		case "help":
+			help();
+			break;
 		case "build":
-			await build();
+			const profileNamesToBuild = process.argv.slice(3);
+			await build(profileNamesToBuild);
 			break;
 		default:
-			throw new Error(`Command '${command}' does not exist.`);
+			console.error(`ERROR: Command '${command}' does not exist. Try 'help'.`);
 	}
 }
 
-async function build() {
-	await deleteDir(BUILD_DIR_PATH);
+function help() {
+	console.log(`\
+Available commands:
+- help                                       Show this help text.
+- build <profileName> [...<profileNames>]    Build profile(s) with given name(s).
+	`);
+}
 
-	for (const profile of PROFILES_TO_BUILD) {
+async function build(profileNamesToBuild: string[]) {
+	if (profileNamesToBuild.length === 0) {
+		console.error(`ERROR: No profile names were given.`);
+		return;
+	}
+	for (const profileName of profileNamesToBuild) {
+		const profile = profiles.find((p) => p.name === profileName);
+		if (!profile) {
+			console.error(`ERROR: Profile with name ${profileName} doesn't exist.`);
+			continue;
+		}
 		buildProfile(profile);
 	}
 }

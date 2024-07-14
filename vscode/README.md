@@ -8,5 +8,19 @@
 
 ```sh
 $ VSCODE_PROFILE_ID="-1ee7c0de"
-$ ./link_profile.sh tavsan_Main "$HOME/Library/Application Support/Code/User/profiles/$VSCODE_PROFILE_ID"
+$ ./link_profile.sh Main_macos "$HOME/Library/Application Support/Code/User/profiles/$VSCODE_PROFILE_ID"
+```
+
+## Extra
+
+List installed extensions:
+
+```sh
+code --profile Main --list-extensions > extensions_Main.txt
+```
+
+Install an extension:
+
+```sh
+code --profile Main --install-extension bradlc.vscode-tailwindcss
 ```
