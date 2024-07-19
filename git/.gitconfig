@@ -6,6 +6,7 @@
 [core]
 	excludesFile = ~/aa/dotfiles/git/.gitignore_global
 	ignorecase = false
+	autocrlf = false
 	editor = micro
 [alias]
 	uncommit = reset --soft HEAD^

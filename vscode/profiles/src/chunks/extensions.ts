@@ -130,6 +130,10 @@ export const macosDev: ExtensionsChunk = [
 	"idleberg.applescript", //                                AppleScript (by idleberg)
 ];
 
+export const windowsDev: ExtensionsChunk = [
+	"ms-vscode.powershell", //                                PowerShell (by Microsoft)
+];
+
 // ===== OS-SPECIFIC =====
 
 export const macos: ExtensionsChunk = [];
