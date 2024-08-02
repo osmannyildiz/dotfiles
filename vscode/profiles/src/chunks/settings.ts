@@ -27,6 +27,7 @@ export const base: SettingsChunk = {
 		"workbench.editor.languageDetection": false,
 		"editor.copyWithSyntaxHighlighting": false,
 		"editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
+		"editor.stickyTabStops": true,
 		"editor.linkedEditing": true,
 		"editor.accessibilitySupport": "off",
 		"explorer.compactFolders": false,
@@ -88,10 +89,10 @@ export const basePlus: SettingsChunk = {
 		// ===== TERMINAL =====
 		"terminal.integrated.showExitAlert": false,
 
-		// ===== INDENTATION =====
-		"editor.detectIndentation": false, // Use manual values for editor.tabSize and editor.insertSpaces
-		// editor.tabSize is 4 by default
-		"editor.insertSpaces": false, // Use tabs (unless overridden per language)
+		// // ===== INDENTATION =====
+		// "editor.detectIndentation": false, // Use manual values for editor.tabSize and editor.insertSpaces
+		// // Defaults: editor.tabSize: 4, editor.insertSpaces: true
+		// "editor.insertSpaces": false, // Use tabs (unless overridden per language)
 
 		// ===== EXTENSIONS =====
 		"gitlens.currentLine.enabled": false,
@@ -106,7 +107,7 @@ export const basePlus: SettingsChunk = {
 		// "powermode.explosionSize": 12,
 		// "powermode.combo.location": "off",
 		// "powermode.shake.intensity": 2,
-		"prettier.useTabs": true,
+		// "prettier.useTabs": true,
 		// "processing.processingPath": "/home/osman/aa/programFiles/processing-3.5.4/processing-java",
 		// "processing.docs": "processing.org",
 		// "processing.py.isEnabled": false,
@@ -118,9 +119,10 @@ export const basePlus: SettingsChunk = {
 			"borsh",
 			"Certbot",
 			"dbconn",
+			"devnet",
 			"dotfiles",
 			"Ionicons",
-			"Keypair",
+			"keypair",
 			"lamport",
 			"lamports",
 			"motoko",
@@ -133,7 +135,7 @@ export const basePlus: SettingsChunk = {
 			"Pubkey",
 			"pubkeys",
 			"pyenv",
-			"Sepolia",
+			"sepolia",
 			"solana",
 			"tanstack",
 			"todos",
@@ -597,29 +599,36 @@ export const web3: SettingsChunk = {
 			},
 		},
 	},
-	objectSettings: {},
+	objectSettings: {
+		[forLanguages("solidity")]: {
+			"editor.insertSpaces": true,
+			"files.trimTrailingWhitespace": true,
+		},
+	},
 	arraySettings: {},
 };
 
 export const web: SettingsChunk = {
 	basicSettings: {},
 	objectSettings: {
-		[forLanguages("html", "vue")]: {
-			"editor.defaultFormatter": "esbenp.prettier-vscode",
-		},
-		[forLanguages("css", "scss")]: {
-			"editor.defaultFormatter": "esbenp.prettier-vscode",
-		},
 		[forLanguages(
+			"html",
+			"vue",
+			"css",
+			"scss",
 			"javascript",
 			"typescript",
 			"javascriptreact",
 			"typescriptreact"
 		)]: {
+			"editor.tabSize": 2,
 			"editor.defaultFormatter": "esbenp.prettier-vscode",
 		},
 		[forLanguages("json", "jsonc")]: {
 			"editor.defaultFormatter": "esbenp.prettier-vscode",
+		},
+		[forLanguages("php")]: {
+			"editor.tabSize": 2,
 		},
 	},
 	arraySettings: {},
@@ -634,11 +643,9 @@ export const webPlus: SettingsChunk = {
 	},
 	objectSettings: {
 		[forLanguages("html", "vue")]: {
-			"editor.tabSize": 2,
 			"editor.formatOnSave": true,
 		},
 		[forLanguages("css", "scss")]: {
-			"editor.tabSize": 2,
 			"editor.formatOnSave": true,
 		},
 		[forLanguages(
@@ -647,14 +654,12 @@ export const webPlus: SettingsChunk = {
 			"javascriptreact",
 			"typescriptreact"
 		)]: {
-			"editor.tabSize": 2,
 			"editor.formatOnSave": true,
 			"editor.codeActionsOnSave": {
 				"source.organizeImports": "explicit",
 			},
 		},
 		[forLanguages("php")]: {
-			"editor.tabSize": 2,
 			"files.trimTrailingWhitespace": true,
 		},
 	},
@@ -706,7 +711,6 @@ export const python: SettingsChunk = {
 			"files.insertFinalNewline": true,
 
 			"editor.insertSpaces": true,
-			"editor.stickyTabStops": true,
 
 			// "editor.formatOnSave": true,
 			"editor.formatOnType": true,

@@ -16,7 +16,7 @@ export const mac: KeybindingsChunk = [
 	{
 		key: "shift+backspace",
 		command: "editor.action.deleteLines",
-		when: "textInputFocus && !editorReadonly",
+		when: "textInputFocus",
 	},
 	{
 		key: "shift+backspace",

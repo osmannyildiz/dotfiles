@@ -10,7 +10,7 @@ export interface SettingsChunk {
 	basicSettings: Record<string, any>;
 	objectSettings: Record<string, Record<string, any>>;
 	arraySettings: Record<string, any[]>;
-};
+}
 
 export type KeybindingsChunk = KeybindingsItem[];
 interface KeybindingsItem {
@@ -19,7 +19,9 @@ interface KeybindingsItem {
 	when?: string;
 }
 
-export type SnippetsChunk = Partial<Record<LanguageId, Record<string, SnippetsItem>>>;
+export type SnippetsChunk = Partial<
+	Record<LanguageId, Record<string, SnippetsItem>>
+>;
 interface SnippetsItem {
 	prefix: string;
 	body: string[];
@@ -29,18 +31,19 @@ interface SnippetsItem {
 export type ExtensionsChunk = string[];
 
 export type LanguageId =
-	"csharp" |
-	"css" |
-	"dart" |
-	"html" |
-	"javascript" |
-	"javascriptreact" |
-	"json" |
-	"jsonc" |
-	"php" |
-	"python" |
-	"rust" |
-	"scss" |
-	"typescript" |
-	"typescriptreact" |
-	"vue";
+	| "csharp"
+	| "css"
+	| "dart"
+	| "html"
+	| "javascript"
+	| "javascriptreact"
+	| "json"
+	| "jsonc"
+	| "php"
+	| "python"
+	| "rust"
+	| "scss"
+	| "solidity"
+	| "typescript"
+	| "typescriptreact"
+	| "vue";
