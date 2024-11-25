@@ -76,6 +76,18 @@ export const base: SettingsChunk = {
 
 		// ===== EXTENSIONS =====
 		"errorLens.enabledDiagnosticLevels": ["error", "warning"],
+		"gitlens.views.scm.grouped.views": {
+			"commits": false,
+			"branches": false,
+			"remotes": false,
+			"stashes": false,
+			"tags": false,
+			"worktrees": false,
+			"contributors": false,
+			"repositories": false,
+			"searchAndCompare": false,
+			"launchpad": false
+		},
 		"path-intellisense.extensionOnImport": true,
 		"redhat.telemetry.enabled": true,
 		"vscode-json-editor.theme": "dark",

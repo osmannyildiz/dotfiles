@@ -142,33 +142,101 @@ export const mainWindows: Profile = {
 	],
 };
 
-// export const mainLinux: Profile = {
-// 	name: "Main_linux",
-// 	settings: [
-// 		settingsChunks.base,
-// 		settingsChunks.basePlus,
-// 		settingsChunks.web,
-// 		settingsChunks.webPlus,
-// 		settingsChunks.linux,
-// 		settingsChunks.python,
-// 	],
-// 	keybindings: [keybindingsChunks.regular],
-// 	snippets: [snippetsChunks.main],
-// 	extensions: [
-// 		extensionsChunks.base,
-// 		extensionsChunks.basePlus,
-// 		extensionsChunks.themes,
-// 		extensionsChunks.themesPlus,
-// 		extensionsChunks.web,
-// 		extensionsChunks.webPlus,
-// 		extensionsChunks.js,
-// 		extensionsChunks.vue,
-// 		extensionsChunks.php,
-// 		extensionsChunks.python,
-// 		extensionsChunks.cpp,
-// 		extensionsChunks.csharp,
-// 		extensionsChunks.processing,
-// 	],
-// };
+export const mainLinux: Profile = {
+	name: "Main_linux",
+	settings: [
+		settingsChunks.base,
+		settingsChunks.basePlus,
+		settingsChunks.web,
+		settingsChunks.webPlus,
+		settingsChunks.linux,
+		settingsChunks.python,
+		{
+			basicSettings: {
+				"workbench.colorTheme": "monokai-charcoal",
+			},
+			objectSettings: {},
+			arraySettings: {},
+		},
+	],
+	keybindings: [keybindingsChunks.regular],
+	snippets: [snippetsChunks.main],
+	extensions: [
+		extensionsChunks.base,
+		extensionsChunks.basePlus,
+		extensionsChunks.themes,
+		extensionsChunks.themesPlus,
+		extensionsChunks.web,
+		extensionsChunks.webPlus,
+		extensionsChunks.js,
+		extensionsChunks.db,
+		extensionsChunks.devops,
+		extensionsChunks.docker,
+		extensionsChunks.php,
+		extensionsChunks.python,
+		extensionsChunks.rust,
+	],
+};
 
-export const profiles = [mainMacos, workMacos, web3Macos, mainWindows];
+export const workLinux: Profile = {
+	name: "Work_linux",
+	settings: [
+		settingsChunks.base,
+		settingsChunks.work,
+		settingsChunks.web,
+		settingsChunks.linux,
+		settingsChunks.python,
+		{
+			basicSettings: {
+				"workbench.colorTheme": "GitHub Dark Default",
+			},
+			objectSettings: {},
+			arraySettings: {},
+		},
+	],
+	keybindings: [keybindingsChunks.regular],
+	snippets: [],
+	extensions: [
+		extensionsChunks.base,
+		extensionsChunks.work,
+		extensionsChunks.web,
+		extensionsChunks.js,
+		extensionsChunks.python,
+		["github.github-vscode-theme"],
+	],
+};
+
+export const web3Linux: Profile = {
+	name: "Web3_linux",
+	settings: [
+		settingsChunks.base,
+		settingsChunks.basePlus,
+		settingsChunks.web3,
+		settingsChunks.web,
+		settingsChunks.webPlus,
+		settingsChunks.linux,
+		{
+			basicSettings: {
+				"workbench.colorTheme": "Bearded Theme Solarized Reversed",
+			},
+			objectSettings: {},
+			arraySettings: {},
+		},
+	],
+	keybindings: [keybindingsChunks.regular],
+	snippets: [snippetsChunks.main],
+	extensions: [
+		extensionsChunks.base,
+		extensionsChunks.basePlus,
+		extensionsChunks.web3,
+		extensionsChunks.themes,
+		extensionsChunks.web,
+		extensionsChunks.webPlus,
+		extensionsChunks.js,
+		extensionsChunks.docker,
+		extensionsChunks.go,
+		extensionsChunks.rust,
+	],
+};
+
+export const profiles = [mainMacos, workMacos, web3Macos, mainWindows, mainLinux, workLinux, web3Linux];

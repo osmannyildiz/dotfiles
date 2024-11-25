@@ -6,7 +6,8 @@
 	"scripts": {
 		"cmd": "ts-node index.ts",
 		"build:panter": "ts-node index.ts build Main_macos Work_macos Web3_macos",
-		"build:asker": "ts-node index.ts build Main_windows"
+		"build:asker_win": "ts-node index.ts build Main_windows",
+		"build:asker_lm": "ts-node index.ts build Main_linux Work_linux Web3_linux"
 	},
 	"keywords": [],
 	"author": "osmannyildiz",
