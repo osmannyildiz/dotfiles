@@ -96,7 +96,7 @@ const buildExtensionsOfProfile = async (profile: Profile) => {
 	}
 
 	mergedExtensions.sort();
-	const content = mergedExtensions.join("\n");
+	const content = mergedExtensions.join("\n") + "\n";
 	await writeTextFileInProfile(profile, "extensions.txt", content);
 };
 

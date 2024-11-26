@@ -319,6 +319,7 @@ export const regular: KeybindingsChunk = [
 	},
 
 	// ===== TOGGLE LINE COMMENT =====
+	// ctrl+numpad_divide => editor.action.commentLine
 	{
 		key: "ctrl+numpad_divide",
 		command: "editor.action.commentLine",
@@ -331,6 +332,8 @@ export const regular: KeybindingsChunk = [
 	// },
 
 	// ===== ADD PREVIOUS OCCURRENCE TO SELECTION =====
+	// ctrl+d => addSelectionToNextFindMatch
+	// ctrl+shift+d => addSelectionToPreviousFindMatch
 	{
 		key: "ctrl+shift+d",
 		command: "editor.action.addSelectionToPreviousFindMatch",
@@ -342,39 +345,26 @@ export const regular: KeybindingsChunk = [
 		when: "viewContainer.workbench.view.debug.enabled",
 	},
 
-	// ===== CHANGE ALL OCCURRENCES =====
-	// {
-	// 	key: "f2",
-	// 	command: "editor.action.changeAll",
-	// 	when: "editorTextFocus && !editorReadonly",
-	// },
-	// {
-	// 	key: "ctrl+f2",
-	// 	command: "-editor.action.changeAll",
-	// 	when: "editorTextFocus && !editorReadonly",
-	// },
+	// ===== NEW LINE BELOW =====
+	// ctrl+enter => editor.action.insertLineAfter
 
-	// ===== RENAME SYMBOL =====
-	// {
-	// 	key: "ctrl+f2",
-	// 	command: "editor.action.rename",
-	// 	when: "editorHasRenameProvider && editorTextFocus && !editorReadonly",
-	// },
-	// {
-	// 	key: "f2",
-	// 	command: "-editor.action.rename",
-	// 	when: "editorHasRenameProvider && editorTextFocus && !editorReadonly",
-	// },
-
-	// ===== SAVE ALL =====
+	// ===== SAVE WITHOUT FORMATTING =====
+	// ctrl+alt+s => workbench.action.files.saveWithoutFormatting
 	{
 		key: "ctrl+alt+s",
-		command: "workbench.action.files.saveFiles",
+		command: "workbench.action.files.saveWithoutFormatting",
 	},
 
 	// ===== TOGGLE TERMINAL =====
 	{
 		key: "ctrl+[Backquote]",
 		command: "workbench.action.terminal.toggleTerminal",
+	},
+
+	// ===== MISC. =====
+	// ctrl+alt+p => workbench.action.quickTextSearch
+	{
+		key: "ctrl+alt+p",
+		command: "workbench.action.quickTextSearch",
 	},
 ];

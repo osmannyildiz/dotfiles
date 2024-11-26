@@ -3,6 +3,7 @@ import type { ExtensionsChunk } from "../definitions";
 // ===== GENERAL =====
 
 export const base: ExtensionsChunk = [
+	"alefragnani.bookmarks", //                               Bookmarks (by Alessandro Fragnani)
 	"vmsynkov.colonize", //                                   Colonize (by vmsynkov)
 	"dotiful.dotfiles-syntax-highlighting", //                Dotfiles Syntax Highlighting (by Art Dev)
 	"mitchdenny.ecdc", //                                     Encode Decode (by Mitch Denny)
@@ -10,9 +11,9 @@ export const base: ExtensionsChunk = [
 	"usernamehw.errorlens", //                                Error Lens (by Alexander)
 	"tamasfe.even-better-toml", //                            Even Better TOML (by tamasfe)
 	"eamodio.gitlens", //                                     GitLens (by GitKraken)
-	"visualstudioexptteam.vscodeintellicode", //              IntelliCode (by Microsoft)
-	"visualstudioexptteam.intellicode-api-usage-examples", // IntelliCode API Usage Examples (by Microsoft)
-	"visualstudioexptteam.vscodeintellicode-completions", //  IntelliCode Completions (by Microsoft)
+	// "visualstudioexptteam.vscodeintellicode", //              IntelliCode (by Microsoft)
+	// "visualstudioexptteam.intellicode-api-usage-examples", // IntelliCode API Usage Examples (by Microsoft)
+	// "visualstudioexptteam.vscodeintellicode-completions", //  IntelliCode Completions (by Microsoft)
 	"nickdemayo.vscode-json-editor", //                       Json Editor (by Nick DeMayo)
 	"ms-vsliveshare.vsliveshare", //                          Live Share (by Microsoft)
 	"jobe451.lorem-whatever", //                              Lorem Whatever (by Daniel Keller)
@@ -35,17 +36,20 @@ export const basePlus: ExtensionsChunk = [
 	"vadimcn.vscode-lldb", //                                 CodeLLDB (by Vadim Chugunov)
 	"sj0000e.hexdiff", //                                     hexdiff (by sj0000e)
 	// "hoovercj.vscode-power-mode", //                          Power Mode (by Cody Hoover)
-	// "tabnine.tabnine-vscode", //                              Tabnine AI (by TabNine)
+	"supermaven.supermaven", //                               Supermaven (by Supermaven)
 	// "zxh404.vscode-proto3", //                                vscode-proto3 (by zxh404)
 ];
 
 export const work: ExtensionsChunk = [
+	"sourcegraph.cody-ai", //                                 Cody: AI Coding Assistant (by Sourcegraph)
 	"johnpapa.vscode-peacock", //                             Peacock (by John Papa)
 ];
 
 export const web3: ExtensionsChunk = [
+	"tintinweb.vscode-circom-pro", //                         Circom Pro (by tintinweb)
 	"dfinity-foundation.vscode-motoko", //                    Motoko (by DFINITY Foundation)
 	"damirka.move-syntax", //                                 Move syntax (by Damir Shamanaev)
+	"noir-lang.vscode-noir", //                               Noir Language Support (by noir-lang)
 	"patriciobcs.solana-snippets", //                         Solana Snippets (by patriciobcs)
 	"nomicfoundation.hardhat-solidity", //                    Solidity (by Nomic Foundation)
 ];
@@ -102,6 +106,7 @@ export const js: ExtensionsChunk = [
 	"wix.vscode-import-cost", //                              Import Cost (by Wix)
 	"xabikos.javascriptsnippets", //                          JavaScript (ES6) code snippets (by charalampos karypidis)
 	"christian-kohler.path-intellisense", //                  Path Intellisense (by Christian Kohler)
+	"mylesmurphy.prettify-ts", //                             Prettify TypeScript: Better Type Previews (by Myles Murphy)
 	"yoavbls.pretty-ts-errors", //                            Pretty TypeScript Errors (by yoavbis)
 ];
 
