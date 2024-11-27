@@ -33,6 +33,7 @@ export const base: SettingsChunk = {
 		"explorer.compactFolders": false,
 		"explorer.autoReveal": false,
 		"diffEditor.ignoreTrimWhitespace": false,
+		"diffEditor.maxComputationTime": 0,
 		"files.exclude": {
 			"**/.git": true,
 			"**/.svn": true,
@@ -57,6 +58,7 @@ export const base: SettingsChunk = {
 		"terminal.integrated.tabs.focusMode": "singleClick",
 		"terminal.integrated.persistentSessionReviveProcess":
 			"onExitAndWindowClose",
+		"terminal.integrated.tabStopWidth": 4,
 
 		// ===== HINTS =====
 		"editor.parameterHints.cycle": true,
@@ -77,16 +79,16 @@ export const base: SettingsChunk = {
 		// ===== EXTENSIONS =====
 		"errorLens.enabledDiagnosticLevels": ["error", "warning"],
 		"gitlens.views.scm.grouped.views": {
-			"commits": false,
-			"branches": false,
-			"remotes": false,
-			"stashes": false,
-			"tags": false,
-			"worktrees": false,
-			"contributors": false,
-			"repositories": false,
-			"searchAndCompare": false,
-			"launchpad": false
+			commits: false,
+			branches: false,
+			remotes: false,
+			stashes: false,
+			tags: false,
+			worktrees: false,
+			contributors: false,
+			repositories: false,
+			searchAndCompare: false,
+			launchpad: false,
 		},
 		"path-intellisense.extensionOnImport": true,
 		"redhat.telemetry.enabled": true,

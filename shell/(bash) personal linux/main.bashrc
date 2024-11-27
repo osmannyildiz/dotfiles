@@ -192,6 +192,10 @@ gra-myserver() { git remote add myserver ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST
 
 ##### PROMPT BEGIN #####
 
+#  BLUE_BOLD="\[\033[01;94m\]"
+# GREEN_BOLD="\[\033[01;92m\]"
+#      CLEAR="\[\033[00m\]"
+# PS1="\n${BLUE_BOLD}\u@\h${CLEAR} : ${BLUE_BOLD}\w${CLEAR}\n${GREEN_BOLD}\$${CLEAR} "
 PS1='\n\u@\h : \w\n\$ '
 
 ##### PROMPT END #####

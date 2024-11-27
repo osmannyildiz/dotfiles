@@ -5,6 +5,14 @@
 #
 
 
+##### TODO BEGIN #####
+
+# For React Native
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+
+##### TODO END #####
+
+
 ##### SECRETS BEGIN #####
 
 if [ -f "$DOTFILES_DIR/local/secrets.zshrc" ]; then
@@ -18,7 +26,15 @@ fi
 
 ### Environment Variables
 
-export MY_PYTHON_HOME="$HOME/portakal/code/python"
+export EDITOR=/opt/homebrew/bin/micro
+
+export MY_PYTHON_HOME="$HOME/aa/code/python"
+export PYTHONPATH="$MY_PYTHON_HOME"
+export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
+
+### PATH Additions
+
+export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 
 ### Shell Variables
 
@@ -29,19 +45,26 @@ LIP_INTERFACE=en0
 
 ##### OPTIONS BEGIN #####
 
+setopt AUTO_CD
+
 ##### OPTIONS END #####
 
 
 ##### ALIASES BEGIN #####
 
 alias q='exit'
-alias l='ls -AC'
-alias ll='ls -Alh'
+alias l='ls -AFG'
+alias ll='ls -AFGlh'
+mkcd() { mkdir $1 && cd $1; }
 # alias cls='clear' // USE CTRL+L
 alias csum='sha256sum'
 csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
-alias c.='codium . && exit'
-alias vsc.='code . && exit'
+alias c.='code .'
+alias cq='code . && exit'
+alias ff='/Applications/Firefox.app/Contents/MacOS/firefox -P > /dev/null'
+alias p='ping google.com -c 100'
+pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
+alias mux='tmuxinator'
 
 # Print local IP
 alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=  netmask)"'
@@ -60,17 +83,14 @@ alias gf="git fetch"
 alias gfa="git fetch --all"
 alias gps="git push"
 alias gpl="git pull"
+alias gup="git fetch --all && git pull"
 alias gco="git checkout"
 alias gb="git branch"
 alias gr="git remote"
+alias gra="git remote add"
 alias gd="git diff"
 alias gdc="git diff --cached"
-
-# Aliases related to my server
-alias myserver="ssh $MYSERVER_USER_MYUSER@$MYSERVER_HOST -p $MYSERVER_PORT -i $MYSERVER_PRIVKEY_MYUSER"
-alias myserver-git="ssh $MYSERVER_USER_GIT@$MYSERVER_HOST -p $MYSERVER_PORT"
-gcl-myserver() { git clone ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST:$MYSERVER_PORT/~/repos/$1.git; }
-gra-myserver() { git remote add myserver ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST:$MYSERVER_PORT/~/repos/$1.git; }
+alias gst="git stash"
 
 ##### ALIASES END #####
 
