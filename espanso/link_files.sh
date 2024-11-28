@@ -1,4 +1,4 @@
-ESPANSO_DIR="$HOME/Library/Application Support/espanso"
+ESPANSO_DIR="$(espanso path config)"
 
 mv "$ESPANSO_DIR/config" "$ESPANSO_DIR/config.old"
 ln -s "$DOTFILES_DIR/espanso/config" "$ESPANSO_DIR/config"

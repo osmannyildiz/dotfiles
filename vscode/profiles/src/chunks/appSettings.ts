@@ -6,7 +6,7 @@ export const linux: SettingsChunk = {
 		"window.titleBarStyle": "custom",
 		"update.mode": "manual",
 		"files.hotExit": "onExitAndWindowClose",
-		"window.restoreWindows": "preserve",
+		// "window.restoreWindows": "preserve",
 		"terminal.integrated.showLinkHover": false,
 	},
 };
