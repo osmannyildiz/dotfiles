@@ -1,15 +1,17 @@
-PROFILE_NAME="$1"
-VSCODE_USER_DIR="$2"
+VSCODE_USER_DIR="$1"
+PROFILE_NAME="$2"
+VSCODE_PROFILE_ID="$3"
 
-# echo "dotfiles dir: '$DOTFILES_DIR'"
-# echo "profile name: '$PROFILE_NAME'"
-# echo "vscode user dir: '$VSCODE_USER_DIR'"
+VSCODE_PROFILE_DIR="$VSCODE_USER_DIR/profiles/$VSCODE_PROFILE_ID"
 
-mv "$VSCODE_USER_DIR/settings.json" "$VSCODE_USER_DIR/settings.json.old"
-ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/settings.json" "$VSCODE_USER_DIR/settings.json"
+# Profile settings
+mv "$VSCODE_PROFILE_DIR/settings.json" "$VSCODE_PROFILE_DIR/settings.json.old"
+ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/settings.json" "$VSCODE_PROFILE_DIR/settings.json"
 
-mv "$VSCODE_USER_DIR/keybindings.json" "$VSCODE_USER_DIR/keybindings.json.old"
-ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
+# Keybindings
+mv "$VSCODE_PROFILE_DIR/keybindings.json" "$VSCODE_PROFILE_DIR/keybindings.json.old"
+ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/keybindings.json" "$VSCODE_PROFILE_DIR/keybindings.json"
 
-mv "$VSCODE_USER_DIR/snippets" "$VSCODE_USER_DIR/snippets.old"
-ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/snippets" "$VSCODE_USER_DIR/snippets"
+# Snippets
+mv "$VSCODE_PROFILE_DIR/snippets" "$VSCODE_PROFILE_DIR/snippets.old"
+ln -s "$DOTFILES_DIR/vscode/profiles/dist/$PROFILE_NAME/snippets" "$VSCODE_PROFILE_DIR/snippets"

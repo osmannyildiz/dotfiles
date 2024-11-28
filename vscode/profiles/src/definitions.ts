@@ -1,3 +1,8 @@
+export interface Device {
+	name: string;
+	appSettings: SettingsChunk[];
+}
+
 export interface Profile {
 	name: string;
 	settings: SettingsChunk[];
@@ -7,9 +12,9 @@ export interface Profile {
 }
 
 export interface SettingsChunk {
-	basicSettings: Record<string, any>;
-	objectSettings: Record<string, Record<string, any>>;
-	arraySettings: Record<string, any[]>;
+	basicSettings?: Record<string, any>;
+	objectSettings?: Record<string, Record<string, any>>;
+	arraySettings?: Record<string, any[]>;
 }
 
 export type KeybindingsChunk = KeybindingsItem[];

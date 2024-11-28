@@ -5,9 +5,9 @@
 	"main": "index.ts",
 	"scripts": {
 		"cmd": "ts-node index.ts",
-		"build:panter": "ts-node index.ts build Main_macos Work_macos Web3_macos",
-		"build:asker_win": "ts-node index.ts build Main_windows",
-		"build:asker_lm": "ts-node index.ts build Main_linux Work_linux Web3_linux"
+		"build:panter": "ts-node index.ts build-app-settings panter && ts-node index.ts build-profiles Main_macos Work_macos Web3_macos",
+		"build:asker_win": "ts-node index.ts build-app-settings asker_win && ts-node index.ts build-profiles Main_windows",
+		"build:asker_lm": "ts-node index.ts build-app-settings asker_lm && ts-node index.ts build-profiles Main_linux Work_linux Web3_linux"
 	},
 	"keywords": [],
 	"author": "osmannyildiz",

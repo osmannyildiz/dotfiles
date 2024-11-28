@@ -53,7 +53,6 @@ export const base: SettingsChunk = {
 		},
 
 		// ===== TERMINAL =====
-		"terminal.integrated.showLinkHover": false,
 		"terminal.integrated.enableFileLinks": "off",
 		"terminal.integrated.tabs.focusMode": "singleClick",
 		"terminal.integrated.persistentSessionReviveProcess":
@@ -94,8 +93,6 @@ export const base: SettingsChunk = {
 		"redhat.telemetry.enabled": true,
 		"vscode-json-editor.theme": "dark",
 	},
-	objectSettings: {},
-	arraySettings: {},
 };
 
 export const basePlus: SettingsChunk = {
@@ -182,7 +179,6 @@ export const basePlus: SettingsChunk = {
 			"editor.defaultFormatter": "rust-lang.rust-analyzer",
 		},
 	},
-	arraySettings: {},
 };
 
 export const work: SettingsChunk = {
@@ -235,8 +231,6 @@ export const work: SettingsChunk = {
 			},
 		],
 	},
-	objectSettings: {},
-	arraySettings: {},
 };
 
 export const web3: SettingsChunk = {
@@ -619,11 +613,9 @@ export const web3: SettingsChunk = {
 			"files.trimTrailingWhitespace": true,
 		},
 	},
-	arraySettings: {},
 };
 
 export const web: SettingsChunk = {
-	basicSettings: {},
 	objectSettings: {
 		[forLanguages(
 			"html",
@@ -645,7 +637,6 @@ export const web: SettingsChunk = {
 			"editor.tabSize": 2,
 		},
 	},
-	arraySettings: {},
 };
 
 export const webPlus: SettingsChunk = {
@@ -677,39 +668,24 @@ export const webPlus: SettingsChunk = {
 			"files.trimTrailingWhitespace": true,
 		},
 	},
-	arraySettings: {},
 };
 
 // ===== OS-SPECIFIC =====
 
-export const macos: SettingsChunk = {
-	basicSettings: {},
-	objectSettings: {},
-	arraySettings: {},
-};
+export const macos: SettingsChunk = {};
 
 export const linux: SettingsChunk = {
 	basicSettings: {
-		// ===== BEHAVIOR =====
-		"files.hotExit": "onExitAndWindowClose",
-		"window.restoreWindows": "preserve",
-		"update.mode": "manual",
-
 		// ===== VISUAL =====
+		"editor.fontSize": 13,
 		"terminal.integrated.fontSize": 13,
 
 		// ===== EXTENSIONS =====
 		"github.gitAuthentication": false,
 	},
-	objectSettings: {},
-	arraySettings: {},
 };
 
-export const windows: SettingsChunk = {
-	basicSettings: {},
-	objectSettings: {},
-	arraySettings: {},
-};
+export const windows: SettingsChunk = {};
 
 // ===== LANGUAGE-SPECIFIC =====
 
@@ -730,5 +706,4 @@ export const python: SettingsChunk = {
 			"editor.formatOnType": true,
 		},
 	},
-	arraySettings: {},
 };

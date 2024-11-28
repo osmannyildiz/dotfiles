@@ -19,12 +19,18 @@ fi
 ### Environment Variables
 
 export EDITOR=micro
-export PATH="$HOME/caylak/program_files/exiftool:$HOME/caylak/program_files/geckodriver-v0.30.0:$HOME/.local/share/solana/install/active_release/bin:$HOME/caylak/program_files/swift-5.7.1-RELEASE-ubuntu20.04/usr/bin:$PATH"
-export MY_PYTHON_HOME="$HOME/caylak/code/python"
+
+export MY_PYTHON_HOME="$HOME/aa/code/python"
+export PYTHONPATH="$MY_PYTHON_HOME"
+export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
+
+### PATH Additions
+
+export PATH="$HOME/aa/portablePrograms/bin:$PATH"
 
 ### Shell Variables
 
-LIP_INTERFACE=wlp0s20f3
+LIP_INTERFACE=wlp4s0
 
 ##### VARIABLES END #####
 
@@ -114,38 +120,38 @@ shopt -s cdspell 2> /dev/null
 ##### ALIASES BEGIN #####
 
 alias q='exit'
+
+alias cls='clear'
+
+alias p='ping google.com -c 100'
+
 alias l='ls -AC --group-directories-first'
 alias ll='ls -Alh --group-directories-first'
-# alias cls='clear' // USE CTRL+L
-alias csum='sha256sum'
-csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
-alias hib='systemctl hibernate'
-alias wifidriver-on='sudo modprobe iwlwifi'
-alias wifidriver-off='sudo modprobe -r iwlwifi'
 
-alias apache-status='service apache2 status'
-alias apache-start='sudo service apache2 start'
-alias apache-stop='sudo service apache2 stop'
-alias apache-reload='sudo service apache2 reload'
-alias mysql-status='service mysql status'
-alias mysql-start='sudo service mysql start'
-alias mysql-stop='sudo service mysql stop'
-alias mongo-status='service mongod status'
-alias mongo-start='sudo service mongod start'
-alias mongo-stop='sudo service mongod stop'
-#alias docker-start='sudo systemctl start docker docker.socket containerd'
-#alias docker-stop='sudo systemctl stop docker docker.socket containerd'
-alias docker-status='systemctl --user status docker'
-alias docker-start='systemctl --user start docker'
-alias docker-stop='systemctl --user stop docker'
+mkcd() { mkdir $1 && cd $1; }
+
+alias csum='sha256sum'
+csum-txt() { csum $1 > $1.sha256sum.txt; }
+
+alias c.='code .'
+alias cq='code . && exit'
+
+alias ff='firefox -P'
+
+alias mux='tmuxinator'
+
+alias httpie='http -v --follow'
+
+#lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
 
 # Print local IP
 alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=  netmask)"'
 #alias lip='ip -4 -o address show dev $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=/\d{1,2})"'
 
-alias c.='code . && exit'
-alias httpie='http -v --follow'
-#lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
+alias hib='sudo systemctl hibernate'
+
+#alias wifidriver-on='sudo modprobe iwlwifi'
+#alias wifidriver-off='sudo modprobe -r iwlwifi'
 
 # Git-related aliases
 alias gcl="git clone"
@@ -160,32 +166,45 @@ alias gf="git fetch"
 alias gfa="git fetch --all"
 alias gps="git push"
 alias gpl="git pull"
+alias gup="git fetch --all && git pull"
 alias gco="git checkout"
 alias gb="git branch"
 alias gr="git remote"
+alias gra="git remote add"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gst="git stash"
 
 # Python-related aliases
-alias py='python3.10'
-#alias ptp='py -m ptpython'
-alias py-pip='pip3.10'
-py-pip-add() { py-pip install $@ && printf "%s\n" $@ >> requirements.txt; }
-py-new() { mkdir $1 && cd $1 && py -m venv env && seba; }
 alias seba='source env/bin/activate'
-alias py-srv='py -m http.server --bind localhost'
-alias py-srv-public='echo -n "Your local IP address is: "; lip; py -m http.server'
-py-run() {
-	local SCRIPT_NAME=$1;
-	shift;
-	py "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
-}
+alias deac='deactivate'
+alias pip-init='python -m venv env && seba'
+pip-new() { mkcd $1 && pip-init; }
+alias pip-i='pip install -r requirements.txt'
+pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
+alias py-srv='python -m http.server --bind localhost'
+alias py-srv-public='echo -n "Your local IP address is: "; lip; py-srv'
+# py-run() {
+# 	local SCRIPT_NAME=$1;
+# 	shift;
+# 	python "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
+# }
 
-# Aliases related to my server
-alias myserver="ssh $MYSERVER_USER_MYUSER@$MYSERVER_HOST -p $MYSERVER_PORT -i $MYSERVER_PRIVKEY_MYUSER"
-alias myserver-git="ssh $MYSERVER_USER_GIT@$MYSERVER_HOST -p $MYSERVER_PORT"
-gcl-myserver() { git clone ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST:$MYSERVER_PORT/~/repos/$1.git; }
-gra-myserver() { git remote add myserver ssh://$MYSERVER_USER_GIT@$MYSERVER_HOST:$MYSERVER_PORT/~/repos/$1.git; }
+alias apache-status='service apache2 status'
+alias apache-start='sudo service apache2 start'
+alias apache-stop='sudo service apache2 stop'
+alias apache-reload='sudo service apache2 reload'
+alias mysql-status='service mysql status'
+alias mysql-start='sudo service mysql start'
+alias mysql-stop='sudo service mysql stop'
+alias mongo-status='service mongod status'
+alias mongo-start='sudo service mongod start'
+alias mongo-stop='sudo service mongod stop'
+#alias docker-start='sudo systemctl start docker docker.socket containerd'
+#alias docker-stop='sudo systemctl stop docker docker.socket containerd'
+#alias docker-status='systemctl --user status docker'
+#alias docker-start='systemctl --user start docker'
+#alias docker-stop='systemctl --user stop docker'
 
 ##### ALIASES END #####
 

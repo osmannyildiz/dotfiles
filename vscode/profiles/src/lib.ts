@@ -1,6 +1,7 @@
 import * as fs from "fs/promises";
 import { BUILD_DIR_PATH } from "./config";
 import type {
+	Device,
 	ExtensionsChunk,
 	KeybindingsChunk,
 	LanguageId,
@@ -8,6 +9,50 @@ import type {
 	SettingsChunk,
 	SnippetsChunk,
 } from "./definitions";
+
+export const buildAppSettings = async (device: Device) => {
+	await deleteFile(`${BUILD_DIR_PATH}/appSettings.json`);
+
+	const mergedSettings: Required<SettingsChunk> = {
+		basicSettings: {},
+		objectSettings: {},
+		arraySettings: {},
+	};
+
+	for (const settingsChunk of device.appSettings) {
+		if (settingsChunk.basicSettings) {
+			mergedSettings.basicSettings = {
+				...mergedSettings.basicSettings,
+				...settingsChunk.basicSettings,
+			};
+		}
+
+		if (settingsChunk.objectSettings) {
+			for (const objectSettingKey in settingsChunk.objectSettings) {
+				mergedSettings.objectSettings[objectSettingKey] = {
+					...mergedSettings.objectSettings[objectSettingKey],
+					...settingsChunk.objectSettings[objectSettingKey],
+				};
+			}
+		}
+
+		if (settingsChunk.arraySettings) {
+			for (const arraySettingKey in settingsChunk.arraySettings) {
+				mergedSettings.arraySettings[arraySettingKey] = [
+					...mergedSettings.arraySettings[arraySettingKey],
+					...settingsChunk.arraySettings[arraySettingKey],
+				];
+			}
+		}
+	}
+
+	const settingsToBeWritten = {
+		...mergedSettings.basicSettings,
+		...mergedSettings.objectSettings,
+		...mergedSettings.arraySettings,
+	};
+	await writeJsonFileInBuildDir("appSettings.json", settingsToBeWritten);
+};
 
 export const buildProfile = async (profile: Profile) => {
 	const profileDirPath = getDirPathForProfile(profile);
@@ -21,29 +66,36 @@ export const buildProfile = async (profile: Profile) => {
 };
 
 const buildSettingsOfProfile = async (profile: Profile) => {
-	const mergedSettings: SettingsChunk = {
+	const mergedSettings: Required<SettingsChunk> = {
 		basicSettings: {},
 		objectSettings: {},
 		arraySettings: {},
 	};
-	for (const settingsChunk of profile.settings) {
-		mergedSettings.basicSettings = {
-			...mergedSettings.basicSettings,
-			...settingsChunk.basicSettings,
-		};
 
-		for (const objectSettingKey in settingsChunk.objectSettings) {
-			mergedSettings.objectSettings[objectSettingKey] = {
-				...mergedSettings.objectSettings[objectSettingKey],
-				...settingsChunk.objectSettings[objectSettingKey],
+	for (const settingsChunk of profile.settings) {
+		if (settingsChunk.basicSettings) {
+			mergedSettings.basicSettings = {
+				...mergedSettings.basicSettings,
+				...settingsChunk.basicSettings,
 			};
 		}
 
-		for (const arraySettingKey in settingsChunk.arraySettings) {
-			mergedSettings.arraySettings[arraySettingKey] = [
-				...mergedSettings.arraySettings[arraySettingKey],
-				...settingsChunk.arraySettings[arraySettingKey],
-			];
+		if (settingsChunk.objectSettings) {
+			for (const objectSettingKey in settingsChunk.objectSettings) {
+				mergedSettings.objectSettings[objectSettingKey] = {
+					...mergedSettings.objectSettings[objectSettingKey],
+					...settingsChunk.objectSettings[objectSettingKey],
+				};
+			}
+		}
+
+		if (settingsChunk.arraySettings) {
+			for (const arraySettingKey in settingsChunk.arraySettings) {
+				mergedSettings.arraySettings[arraySettingKey] = [
+					...mergedSettings.arraySettings[arraySettingKey],
+					...settingsChunk.arraySettings[arraySettingKey],
+				];
+			}
 		}
 	}
 
@@ -100,6 +152,15 @@ const buildExtensionsOfProfile = async (profile: Profile) => {
 	await writeTextFileInProfile(profile, "extensions.txt", content);
 };
 
+const writeJsonFileInBuildDir = async (filePath: string, content: any) => {
+	const contentJson = JSON.stringify(content, undefined, "\t");
+	await writeTextFileInBuildDir(filePath, contentJson);
+};
+
+const writeTextFileInBuildDir = async (filePath: string, content: string) => {
+	await fs.writeFile(`${BUILD_DIR_PATH}/${filePath}`, content);
+};
+
 const writeJsonFileInProfile = async (
 	profile: Profile,
 	filePath: string,
@@ -130,6 +191,17 @@ export const deleteDir = async (dirPath: string) => {
 	// Note: fs.rm throws if the dir does not exist.
 	try {
 		await fs.rm(dirPath, { recursive: true });
+	} catch (err: any) {
+		if (err.code === "ENOENT") {
+			return;
+		}
+		throw err;
+	}
+};
+
+export const deleteFile = async (filePath: string) => {
+	try {
+		await fs.rm(filePath);
 	} catch (err: any) {
 		if (err.code === "ENOENT") {
 			return;

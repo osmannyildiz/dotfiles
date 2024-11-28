@@ -53,18 +53,27 @@ setopt AUTO_CD
 ##### ALIASES BEGIN #####
 
 alias q='exit'
+
+alias cls='clear'
+
+alias p='ping google.com -c 100'
+
 alias l='ls -AFG'
 alias ll='ls -AFGlh'
+
 mkcd() { mkdir $1 && cd $1; }
-# alias cls='clear' // USE CTRL+L
+
 alias csum='sha256sum'
 csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
+
 alias c.='code .'
 alias cq='code . && exit'
+
 alias ff='/Applications/Firefox.app/Contents/MacOS/firefox -P > /dev/null'
-alias p='ping google.com -c 100'
-pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
+
 alias mux='tmuxinator'
+
+pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
 
 # Print local IP
 alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=  netmask)"'

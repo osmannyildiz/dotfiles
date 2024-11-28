@@ -19,7 +19,7 @@ export const base: ExtensionsChunk = [
 	"jobe451.lorem-whatever", //                              Lorem Whatever (by Daniel Keller)
 	"davidanson.vscode-markdownlint", //                      markdownlint (by David Anson)
 	"mechatroner.rainbow-csv", //                             Rainbow CSV (by mechatroner)
-	"redhat.fabric8-analytics", //                            Red Hat Dependency Analytics (by Red Hat)
+	// "redhat.fabric8-analytics", //                            Red Hat Dependency Analytics (by Red Hat)
 	"rioj7.vscode-remove-comments", //                        Remove Comments (by rioj7)
 	"usernamehw.remove-empty-lines", //                       Remove empty lines (by Alexander)
 	// "irishbruse.smartersemicolon", //                         Smarter Semicolon (by Ethan Conneely)

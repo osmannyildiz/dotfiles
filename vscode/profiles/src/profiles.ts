@@ -17,8 +17,6 @@ export const mainMacos: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "monokai-charcoal",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.mac],
@@ -54,8 +52,6 @@ export const workMacos: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "GitHub Dark Default",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.mac],
@@ -84,8 +80,6 @@ export const web3Macos: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "Bearded Theme Solarized Reversed",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.mac],
@@ -118,8 +112,6 @@ export const mainWindows: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "monokai-charcoal",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.regular],
@@ -155,8 +147,6 @@ export const mainLinux: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "monokai-charcoal",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.regular],
@@ -190,8 +180,6 @@ export const workLinux: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "GitHub Dark Default",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.regular],
@@ -219,8 +207,6 @@ export const web3Linux: Profile = {
 			basicSettings: {
 				"workbench.colorTheme": "Bearded Theme Solarized Reversed",
 			},
-			objectSettings: {},
-			arraySettings: {},
 		},
 	],
 	keybindings: [keybindingsChunks.regular],
@@ -239,4 +225,12 @@ export const web3Linux: Profile = {
 	],
 };
 
-export const profiles = [mainMacos, workMacos, web3Macos, mainWindows, mainLinux, workLinux, web3Linux];
+export const profiles = [
+	mainMacos,
+	workMacos,
+	web3Macos,
+	mainWindows,
+	mainLinux,
+	workLinux,
+	web3Linux,
+];

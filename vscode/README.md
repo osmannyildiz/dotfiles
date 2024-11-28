@@ -3,24 +3,34 @@
 ## Link profiles
 
 1. Create a new profile from within VSCode.
-2. Learn that new profile's profile ID and assign it to the `VSCODE_PROFILE_ID` shell variable, like shown below.
+2. Learn that new profile's profile ID.
 3. Run the commands below **with relevant values**.
 
 For macOS:
 
 ```sh
-$ VSCODE_PROFILE_ID="-1ee7c0de"
-$ ./link_profile.sh Main_macos "$HOME/Library/Application Support/Code/User/profiles/$VSCODE_PROFILE_ID"
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+
+# User dir path
+./link_app_settings.sh $VSCODE_USER_DIR
+
+# User dir path, profile name, profile ID
+./link_profile.sh $VSCODE_USER_DIR Main_macos "-1ee7c0de"
 ```
 
 For Ubuntu:
 
 ```sh
-$ VSCODE_PROFILE_ID="-1ee7c0de"
-$ ./link_profile.sh Main_linux "$HOME/.config/Code/User/profiles/$VSCODE_PROFILE_ID"
+VSCODE_USER_DIR="$HOME/.config/Code/User"
+
+# User dir path
+./link_app_settings.sh $VSCODE_USER_DIR
+
+# User dir path, profile name, profile ID
+./link_profile.sh $VSCODE_USER_DIR Main_linux "-1ee7c0de"
 ```
 
-For PowerShell on Windows:
+For PowerShell on Windows (TODO):
 
 ```powershell
 # Run as administrator!
