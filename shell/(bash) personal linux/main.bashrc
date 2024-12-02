@@ -5,13 +5,9 @@
 #
 
 
-##### SECRETS BEGIN #####
-
-if [ -f "$DOTFILES_DIR/local/secrets.bashrc" ]; then
-	source "$DOTFILES_DIR/local/secrets.bashrc"
+if [ -f "$DOTFILES_DIR/_private/shell/pre.bashrc" ]; then
+	source "$DOTFILES_DIR/_private/shell/pre.bashrc"
 fi
-
-##### SECRETS END #####
 
 
 ##### VARIABLES BEGIN #####
@@ -143,6 +139,8 @@ alias mux='tmuxinator'
 
 alias httpie='http -v --follow'
 
+alias sudo-xed='xed admin://'
+
 #lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
 
 # Print local IP
@@ -233,6 +231,11 @@ echo "----------------{_}'-^-'{_}-----------------------------------------------
 echo ""
 
 ##### WELCOME END #####
+
+
+if [ -f "$DOTFILES_DIR/_private/shell/post.bashrc" ]; then
+	source "$DOTFILES_DIR/_private/shell/post.bashrc"
+fi
 
 
 #

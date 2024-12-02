@@ -5,21 +5,17 @@
 #
 
 
+if [ -f "$DOTFILES_DIR/_private/shell/pre.zshrc" ]; then
+	source "$DOTFILES_DIR/_private/shell/pre.zshrc"
+fi
+
+
 ##### TODO BEGIN #####
 
 # For React Native
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 
 ##### TODO END #####
-
-
-##### SECRETS BEGIN #####
-
-if [ -f "$DOTFILES_DIR/local/secrets.zshrc" ]; then
-	source "$DOTFILES_DIR/local/secrets.zshrc"
-fi
-
-##### SECRETS END #####
 
 
 ##### VARIABLES BEGIN #####
@@ -130,6 +126,11 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo ""
 
 ##### WELCOME END #####
+
+
+if [ -f "$DOTFILES_DIR/_private/shell/post.zshrc" ]; then
+	source "$DOTFILES_DIR/_private/shell/post.zshrc"
+fi
 
 
 #
