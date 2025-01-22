@@ -47,7 +47,7 @@ shopt -s checkwinsize
 
 # Automatically trim long paths in the prompt (requires Bash 4.x or newer)
 # Also see: https://jichu4n.com/posts/shortening-paths-in-the-bash-prompt-with-prompt_dirtrim/
-PROMPT_DIRTRIM=3
+PROMPT_DIRTRIM=5
 
 ### Tab-Completion
 
@@ -130,16 +130,22 @@ mkcd() { mkdir $1 && cd $1; }
 alias csum='sha256sum'
 csum-txt() { csum $1 > $1.sha256sum.txt; }
 
-alias c.='code .'
-alias cq='code . && exit'
-
 alias ff='firefox -P'
 
 alias mux='tmuxinator'
 
 alias httpie='http -v --follow'
 
-alias sudo-xed='xed admin://'
+sudo-xed() { xed "admin://$1"; }
+
+run-bg() { nohup "$@" > /dev/null 2>&1 & }
+
+alias fx='run-bg open .'
+
+alias c.='code .'
+alias cq='code . && exit'
+
+alias cu.='run-bg cursor .'
 
 #lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
 
@@ -188,6 +194,17 @@ alias py-srv-public='echo -n "Your local IP address is: "; lip; py-srv'
 # 	shift;
 # 	python "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
 # }
+
+# Solana-related aliases
+alias scl='solana config set -ul'
+alias scd='solana config set -ud'
+alias stv='cd && solana-test-validator --reset'
+alias sl='solana logs'
+alias csd='npx create-solana-dapp'
+alias ai='anchor init --template multiple'
+alias ab='anchor build && anchor keys sync'
+alias at='anchor test --skip-local-validator'
+alias ad='anchor deploy --provider.cluster localnet'
 
 alias apache-status='service apache2 status'
 alias apache-start='sudo service apache2 start'

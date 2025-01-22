@@ -34,6 +34,7 @@ export const base: SettingsChunk = {
 		"explorer.autoReveal": false,
 		"diffEditor.ignoreTrimWhitespace": false,
 		"diffEditor.maxComputationTime": 0,
+		"npm.autoDetect": "off",
 		"files.exclude": {
 			"**/.git": true,
 			"**/.svn": true,
