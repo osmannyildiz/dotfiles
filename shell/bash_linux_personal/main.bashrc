@@ -134,8 +134,8 @@ alias mux='tmuxinator'
 
 alias httpie='http -v --follow'
 
-alias b='bat'
-alias bp='bat --paging=always'
+alias b='batcat'
+alias bp='batcat --paging=always'
 
 run-bg() { nohup "$@" > /dev/null 2>&1 & }
 
@@ -183,8 +183,8 @@ alias gst="git stash"
 # Python-related aliases
 alias seba='source env/bin/activate'
 alias deac='deactivate'
-alias pip-init='python -m venv env && seba'
-pip-new() { mkcd $1 && pip-init; }
+alias py-init='python -m venv env && seba'
+py-new() { mkcd $1 && py-init; }
 alias pip-i='pip install -r requirements.txt'
 pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
 alias py-srv='python -m http.server --bind localhost'

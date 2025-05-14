@@ -130,8 +130,8 @@ alias mux='tmuxinator'
 
 alias httpie='http -v --follow'
 
-alias b='bat'
-alias bp='bat --paging=always'
+alias b='batcat'
+alias bp='batcat --paging=always'
 
 run-bg() { nohup "$@" > /dev/null 2>&1 & }
 
