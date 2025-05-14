@@ -56,5 +56,6 @@ code --profile Main --install-extension bradlc.vscode-tailwindcss
 Install all extensions at once like a true `e1ee7 h@x0r`:
 
 ```sh
-$ ./install_extensions.sh Main profiles/dist/Main_linux/extensions.txt
+# Profile name, extensions file path
+./install_extensions.sh Main profiles/dist/Main_linux/extensions.txt
 ```
