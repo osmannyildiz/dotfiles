@@ -22,11 +22,7 @@ export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
 
 ### PATH Additions
 
-export PATH="$HOME/aa/portablePrograms/bin:$PATH"
-
 ### Shell Variables
-
-LIP_INTERFACE=wlp4s0
 
 ##### VARIABLES END #####
 
@@ -139,25 +135,6 @@ alias bp='bat --paging=always'
 
 run-bg() { nohup "$@" > /dev/null 2>&1 & }
 
-alias fx='run-bg open .'
-alias ff='firefox -P'
-sudo-xed() { xed "admin://$1"; }
-
-alias c.='code .'
-alias cq='code . && exit'
-alias cu.='run-bg cursor .'
-
-#lvsrv() { live-server --no-browser --port="$1"; }  # Host is 0.0.0.0 by default
-
-# Print local IP
-alias lip='ifconfig $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=  netmask)"'
-#alias lip='ip -4 -o address show dev $LIP_INTERFACE | grep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?=/\d{1,2})"'
-
-alias hib='sudo systemctl hibernate'
-
-#alias wifidriver-on='sudo modprobe iwlwifi'
-#alias wifidriver-off='sudo modprobe -r iwlwifi'
-
 # Git-related aliases
 alias gcl="git clone"
 alias gl="git log"
@@ -183,12 +160,10 @@ alias gst="git stash"
 # Python-related aliases
 alias seba='source env/bin/activate'
 alias deac='deactivate'
-alias pip-init='python -m venv env && seba'
-pip-new() { mkcd $1 && pip-init; }
+alias py-init='python -m venv env && seba'
+py-new() { mkcd $1 && py-init; }
 alias pip-i='pip install -r requirements.txt'
 pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
-alias py-srv='python -m http.server --bind localhost'
-alias py-srv-public='echo -n "Your local IP address is: "; lip; py-srv'
 # py-run() {
 # 	local SCRIPT_NAME=$1;
 # 	shift;
@@ -205,6 +180,12 @@ alias ai='anchor init --template multiple'
 alias ab='anchor build && anchor keys sync'
 alias at='anchor test --skip-local-validator'
 alias ad='anchor deploy --provider.cluster localnet'
+
+alias nginx-status='service nginx status'
+alias nginx-start='sudo service nginx start'
+alias nginx-stop='sudo service nginx stop'
+alias nginx-restart='sudo service nginx restart'
+alias nginx-reload='sudo service nginx reload'
 
 alias apache-status='service apache2 status'
 alias apache-start='sudo service apache2 start'
@@ -229,31 +210,6 @@ alias mongo-restart='sudo service mongod restart'
 #alias docker-stop='systemctl --user stop docker'
 
 ##### ALIASES END #####
-
-
-##### PROMPT BEGIN #####
-
-#  BLUE_BOLD="\[\033[01;94m\]"
-# GREEN_BOLD="\[\033[01;92m\]"
-#      CLEAR="\[\033[00m\]"
-# PS1="\n${BLUE_BOLD}\u@\h${CLEAR} : ${BLUE_BOLD}\w${CLEAR}\n${GREEN_BOLD}\$${CLEAR} "
-PS1='\n\u@\h : \w\n\$ '
-
-##### PROMPT END #####
-
-
-##### WELCOME BEGIN #####
-
-# Based on art by Hayley Jane Wakenshaw
-echo ""
-echo "                           /)"
-echo "                  /\___/\ (("
-echo "                  \'0_0'/  ))"
-echo "                  { :Y: }_//"
-echo "----------------{_}'-^-'{_}-----------------------------------------------------"
-echo ""
-
-##### WELCOME END #####
 
 
 if [ -f "$DOTFILES_DIR/_private/shell/post.bashrc" ]; then

@@ -62,16 +62,21 @@ alias ll='ls -AFGlh'
 mkcd() { mkdir $1 && cd $1; }
 
 alias csum='sha256sum'
-csum-txt() { sha256sum $1 > $1.sha256sum.txt; }
-
-alias ff='/Applications/Firefox.app/Contents/MacOS/firefox -P > /dev/null'
+csum-txt() { csum $1 > $1.sha256sum.txt; }
 
 alias mux='tmuxinator'
+
+alias httpie='http -v --follow'
 
 alias b='bat'
 alias bp='bat --paging=always'
 
+# TODO run-bg
+
+pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
+
 alias fx='open .'
+alias ff='/Applications/Firefox.app/Contents/MacOS/firefox -P > /dev/null'
 
 alias c.='code .'
 alias cq='code . && exit'
@@ -79,8 +84,6 @@ alias z.='zed .'
 alias zq='zed . && exit'
 alias cu.='cursor .'
 alias cuq='cursor . && exit'
-
-pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
 
 # Print local IP
 alias lip='ifconfig $LIP_INTERFACE | ggrep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?= netmask)"'
@@ -110,6 +113,22 @@ alias gst="git stash"
 
 # https://superuser.com/a/1559424
 alias git-undo-chmod="git diff -p | grep -E '^(diff|old mode|new mode)' | sed -e 's/^old/NEW/;s/^new/old/;s/^NEW/new/' | git apply"
+# TODO Test and implement for Bash
+
+# Python-related aliases
+alias seba='source env/bin/activate'
+alias deac='deactivate'
+alias py-init='python -m venv env && seba'
+py-new() { mkcd $1 && py-init; }
+alias pip-i='pip install -r requirements.txt'
+pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
+alias py-srv='python -m http.server --bind localhost'
+alias py-srv-public='echo -n "Your local IP address is: "; lip; py-srv'
+# py-run() {
+# 	local SCRIPT_NAME=$1;
+# 	shift;
+# 	python "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
+# }
 
 # Java-related aliases
 alias jdk-list='/usr/libexec/java_home -V'
