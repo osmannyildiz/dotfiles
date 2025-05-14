@@ -36,12 +36,12 @@ export const basePlus: ExtensionsChunk = [
 	"vadimcn.vscode-lldb", //                                 CodeLLDB (by Vadim Chugunov)
 	"sj0000e.hexdiff", //                                     hexdiff (by sj0000e)
 	// "hoovercj.vscode-power-mode", //                          Power Mode (by Cody Hoover)
-	"supermaven.supermaven", //                               Supermaven (by Supermaven)
+	// "supermaven.supermaven", //                               Supermaven (by Supermaven)
 	// "zxh404.vscode-proto3", //                                vscode-proto3 (by zxh404)
 ];
 
 export const work: ExtensionsChunk = [
-	"sourcegraph.cody-ai", //                                 Cody: AI Coding Assistant (by Sourcegraph)
+	// "sourcegraph.cody-ai", //                                 Cody: AI Coding Assistant (by Sourcegraph)
 	"johnpapa.vscode-peacock", //                             Peacock (by John Papa)
 ];
 

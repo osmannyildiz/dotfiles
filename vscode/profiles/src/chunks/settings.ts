@@ -10,10 +10,11 @@ export const base: SettingsChunk = {
 	basicSettings: {
 		// ===== VISUAL =====
 		"window.title": "${dirty}${rootName}",
-		"window.commandCenter": true,
+		"workbench.activityBar.orientation": "vertical",
 		"workbench.layoutControl.enabled": false,
 		"workbench.editor.highlightModifiedTabs": true,
 		"workbench.editor.empty.hint": "hidden",
+		// "workbench.editor.wrapTabs": true,
 		"editor.renderWhitespace": "boundary",
 		"editor.roundedSelection": false,
 		"editor.cursorSmoothCaretAnimation": "on",

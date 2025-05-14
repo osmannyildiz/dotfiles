@@ -2,8 +2,13 @@ import * as appSettingsChunks from "./chunks/appSettings";
 import { Device } from "./definitions";
 
 export const askerLm: Device = {
-	name: "asker_lm",
-	appSettings: [appSettingsChunks.linux],
+  name: "asker_lm",
+  appSettings: [appSettingsChunks.common, appSettingsChunks.linux],
 };
 
-export const devices = [askerLm];
+export const panter: Device = {
+  name: "panter",
+  appSettings: [appSettingsChunks.common, appSettingsChunks.macos],
+};
+
+export const devices = [askerLm, panter];

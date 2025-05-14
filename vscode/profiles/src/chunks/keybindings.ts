@@ -182,6 +182,57 @@ export const mac: KeybindingsChunk = [
 		key: "ctrl+cmd+p",
 		command: "workbench.action.quickTextSearch",
 	},
+	{
+    "key": "cmd+k cmd+s",
+    "command": "git.stageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  },
+  {
+    "key": "cmd+k alt+cmd+s",
+    "command": "-git.stageSelectedRanges",
+    "when": "isInDiffEditor && !operationInProgress"
+  }
+];
+
+export const cursorMac: KeybindingsChunk = [
+  {
+    key: "cmd+[Semicolon]",
+    command: "aipopup.action.modal.generate",
+    when: "editorFocus && !composerBarIsVisible",
+  },
+  {
+    key: "cmd+k",
+    command: "-aipopup.action.modal.generate",
+    when: "editorFocus && !composerBarIsVisible",
+  },
+  {
+    key: "shift+cmd+[Semicolon]",
+    command: "aipopup.action.modal.generate",
+    when: "editorFocus && !composerBarIsVisible",
+  },
+  {
+    key: "shift+cmd+k",
+    command: "-aipopup.action.modal.generate",
+    when: "editorFocus && !composerBarIsVisible",
+  },
+  {
+    key: "shift+cmd+[Semicolon]",
+    command: "composer.openAsBar",
+  },
+  {
+    key: "shift+cmd+k",
+    command: "-composer.openAsBar",
+  },
+  {
+    key: "cmd+k cmd+c",
+    command: "editor.action.addCommentLine",
+    when: "editorTextFocus && !editorReadonly",
+  },
+  {
+    key: "cmd+k cmd+u",
+    command: "editor.action.removeCommentLine",
+    when: "editorTextFocus && !editorReadonly",
+  },
 ];
 
 export const regular: KeybindingsChunk = [
