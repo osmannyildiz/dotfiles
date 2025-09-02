@@ -112,6 +112,8 @@ shopt -s cdspell 2> /dev/null
 
 ##### ALIASES BEGIN #####
 
+alias dotf='source ~/.bashrc'
+
 alias q='exit'
 
 alias cls='clear'
@@ -170,6 +172,16 @@ pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
 # 	python "$MY_PYTHON_HOME/_run/$SCRIPT_NAME.py" $@;
 # }
 
+# Nginx-related aliases
+alias nginx-status='service nginx status'
+alias nginx-start='sudo service nginx start'
+alias nginx-stop='sudo service nginx stop'
+alias nginx-restart='sudo service nginx restart'
+alias nginx-reload='sudo nginx -t && sudo service nginx reload'
+nginx-add() { mv $1 /etc/nginx/sites-available/; }
+nginx-enable() { ln -s /etc/nginx/sites-available/$1.nginx /etc/nginx/sites-enabled/; }
+nginx-disable() { rm /etc/nginx/sites-enabled/$1.nginx; }
+
 # Solana-related aliases
 alias scl='solana config set -ul' # Localnet
 alias scd='solana config set -ud' # Devnet
@@ -180,12 +192,6 @@ alias ai='anchor init --template multiple'
 alias ab='anchor build && anchor keys sync'
 alias at='anchor test --skip-local-validator'
 alias ad='anchor deploy --provider.cluster localnet'
-
-alias nginx-status='service nginx status'
-alias nginx-start='sudo service nginx start'
-alias nginx-stop='sudo service nginx stop'
-alias nginx-restart='sudo service nginx restart'
-alias nginx-reload='sudo service nginx reload'
 
 alias apache-status='service apache2 status'
 alias apache-start='sudo service apache2 start'
