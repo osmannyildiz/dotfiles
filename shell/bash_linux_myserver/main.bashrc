@@ -178,6 +178,8 @@ alias nginx-start='sudo service nginx start'
 alias nginx-stop='sudo service nginx stop'
 alias nginx-restart='sudo service nginx restart'
 alias nginx-reload='sudo nginx -t && sudo service nginx reload'
+alias nginx-ls-available='ls -1N /etc/nginx/sites-available'
+alias nginx-ls-enabled='ls -1N /etc/nginx/sites-enabled'
 nginx-add() { sudo mv $1 /etc/nginx/sites-available/; }
 nginx-enable() { sudo ln -s /etc/nginx/sites-available/$1.nginx /etc/nginx/sites-enabled/; }
 nginx-disable() { sudo rm /etc/nginx/sites-enabled/$1.nginx; }
