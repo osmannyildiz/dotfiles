@@ -220,6 +220,15 @@ alias mongo-restart='sudo service mongod restart'
 ##### ALIASES END #####
 
 
+##### PROMPT BEGIN #####
+
+RED="\[\e[0;31m\]"
+CLEAR="\[\e[0m\]"
+PS1="\n${RED}\u@\h${CLEAR} : ${RED}\w${CLEAR}\n\$ "
+
+##### PROMPT END #####
+
+
 if [ -f "$DOTFILES_DIR/_private/shell/post.bashrc" ]; then
 	source "$DOTFILES_DIR/_private/shell/post.bashrc"
 fi
