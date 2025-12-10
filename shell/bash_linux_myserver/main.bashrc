@@ -22,6 +22,8 @@ export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
 
 ### PATH Additions
 
+export PATH="$HOME/aa/programFiles/bin:$PATH"
+
 ### Shell Variables
 
 ##### VARIABLES END #####
@@ -140,6 +142,7 @@ run-bg() { nohup "$@" > /dev/null 2>&1 & }
 # Git-related aliases
 alias gcl="git clone"
 alias gl="git log"
+alias gla="git log --graph --all"
 alias gs="git status"
 alias gi="git init"
 alias ga="git add"
@@ -149,12 +152,14 @@ alias gcm="git commit -m"
 alias gf="git fetch"
 alias gfa="git fetch --all"
 alias gps="git push"
+alias gpsuom="git push -u origin main"
 alias gpl="git pull"
 alias gup="git fetch --all && git pull"
 alias gco="git checkout"
 alias gb="git branch"
 alias gr="git remote"
 alias gra="git remote add"
+alias grao="git remote add origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gst="git stash"
@@ -195,6 +200,8 @@ alias ab='anchor build && anchor keys sync'
 alias at='anchor test --skip-local-validator'
 alias ad='anchor deploy --provider.cluster localnet'
 
+alias pab='pnpm approve-builds'
+
 alias apache-status='service apache2 status'
 alias apache-start='sudo service apache2 start'
 alias apache-stop='sudo service apache2 stop'
@@ -224,7 +231,7 @@ alias mongo-restart='sudo service mongod restart'
 
 RED="\[\e[0;31m\]"
 CLEAR="\[\e[0m\]"
-PS1="\n${RED}\u@\h${CLEAR} : ${RED}\w${CLEAR}\n\$ "
+PS1="\n🔥 ${RED}\u@\h${CLEAR} : ${RED}\w${CLEAR}\n \$ "
 
 ##### PROMPT END #####
 
