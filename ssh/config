@@ -2,3 +2,8 @@
 ServerAliveInterval 30
 ServerAliveCountMax 3
 
+IgnoreUnknown UseKeychain
+
+Host *
+	AddKeysToAgent yes
+	UseKeychain yes

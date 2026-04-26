@@ -6,3 +6,17 @@ matches:
         type: date
         params:
           format: "%y%m%d"
+  - trigger: ";er"
+    replace: "🔴"
+  - trigger: ";ey"
+    replace: "🟡"
+  - trigger: ";eg"
+    replace: "🟢"
+  - trigger: ";ec"
+    replace: "✅"
+  - trigger: ";ex"
+    replace: "❌"
+  - trigger: ";ef"
+    replace: "🔥"
+  - trigger: ";es"
+    replace: "⭐️"

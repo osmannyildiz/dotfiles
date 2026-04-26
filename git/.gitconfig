@@ -10,3 +10,5 @@
 	editor = micro
 [alias]
 	uncommit = reset --soft HEAD^
+	stash-keep = !git stash store $(git stash create)
+	stash-keep-staged = !git stash push --staged && git stash apply --index

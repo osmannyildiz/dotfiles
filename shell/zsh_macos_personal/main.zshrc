@@ -17,12 +17,17 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17`
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
 
+# CodeQuick
+source $HOME/aa/code/shell/codequick/contrib/cq.zsh
+
 ##### TODO END #####
 
 
 ##### VARIABLES BEGIN #####
 
 ### Environment Variables
+
+export XDG_CONFIG_HOME="/Users/osman/.config"
 
 export EDITOR=/opt/homebrew/bin/micro
 
@@ -32,7 +37,7 @@ export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
 
 ### PATH Additions
 
-export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="$HOME/aa/programFiles/bin:/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 
 ### Shell Variables
 
@@ -45,10 +50,18 @@ LIP_INTERFACE=en0
 
 setopt AUTO_CD
 
+# Don't store consecutive duplicates in history
+setopt HIST_IGNORE_DUPS
+
+# Append history lines as soon as they're entered (instead of only on shell exit)
+setopt INC_APPEND_HISTORY
+
 ##### OPTIONS END #####
 
 
 ##### ALIASES BEGIN #####
+
+alias dotf='source ~/.zshrc'
 
 alias q='exit'
 
@@ -65,25 +78,31 @@ alias csum='sha256sum'
 csum-txt() { csum $1 > $1.sha256sum.txt; }
 
 alias mux='tmuxinator'
+alias mux-ls='ls -1 ~/.config/tmuxinator/'
 
 alias httpie='http -v --follow'
 
 alias b='bat'
 alias bp='bat --paging=always'
 
+alias m='micro'
+
+alias rga='rg -uu' # ripgrep all
+
 # TODO run-bg
+
+alias skhdrc='cot ~/.skhdrc'
+alias skhd-logs='tail -n 0 -f /tmp/skhd_osman.err.log'
 
 pgbin() { /opt/homebrew/opt/postgresql@15/bin/$1; }
 
-alias fx='open .'
+alias fx.='open .'
+alias fxr='open -R'
 alias ff='/Applications/Firefox.app/Contents/MacOS/firefox -P > /dev/null'
 
 alias c.='code .'
-alias cq='code . && exit'
 alias z.='zed .'
-alias zq='zed . && exit'
 alias cu.='cursor .'
-alias cuq='cursor . && exit'
 
 # Print local IP
 alias lip='ifconfig $LIP_INTERFACE | ggrep --color=never -Po "inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?= netmask)"'
@@ -92,24 +111,69 @@ alias lip='ifconfig $LIP_INTERFACE | ggrep --color=never -Po "inet \K\d{1,3}\.\d
 # Git-related aliases
 alias gcl="git clone"
 alias gl="git log"
+alias gla="git log --graph --all"
 alias gs="git status"
 alias gi="git init"
 alias ga="git add"
 alias ga.="git add ."
 alias gc="git commit"
 alias gcm="git commit -m"
-alias gf="git fetch"
-alias gfa="git fetch --all"
+gf() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
+So you probably don't need to use ${y}git fetch${w}."
+}
+gfa() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git fetch --all${w} fetches all branches from all remotes.
+${y}git fetch${w} fetches all branches from origin.
+So you probably want to use ${y}git fetch${w}."
+}
 alias gps="git push"
+alias gpsu="git push -u"
+alias gpsuo="git push -u origin"
+alias gpsuom="git push -u origin main"
 alias gpl="git pull"
-alias gup="git fetch --all && git pull"
-alias gco="git checkout"
+gup() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
+So just use ${y}git pull${w} (alias: ${y}gpl${w})."
+}
+gco() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ Stop using git checkout for everything!
+
+Switch to a branch:
+${y}gco main${w} → ${y}gsw main${w}
+
+Create a new branch:
+${y}gco -b feat1${w} → ${y}gswc feat1${w}
+
+Create a new branch based on a commit:
+${y}gco -b feat1 1ee933a5${w} → ${y}gswc feat1 1ee933a5${w}
+
+Switch to a previous commit:
+${y}gco 1ee933a5${w} → ${y}gswd 1ee933a5${w}
+
+Switch to the N-th previous commit:
+${y}gco HEAD~1${w} → ${y}gswd HEAD~1${w}"
+}
 alias gb="git branch"
+alias gbl="git branch --color=always | grep -v '^\s*merged\/'"
 alias gr="git remote"
 alias gra="git remote add"
+alias grao="git remote add origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gst="git stash"
+alias gsw="git switch"
+alias gswc="git switch -c" # --create
+alias gswd="git switch -d" # --detach
+alias gmff="git merge --ff-only"
 
 # https://superuser.com/a/1559424
 alias git-undo-chmod="git diff -p | grep -E '^(diff|old mode|new mode)' | sed -e 's/^old/NEW/;s/^new/old/;s/^NEW/new/' | git apply"
@@ -145,14 +209,45 @@ alias ab='anchor build && anchor keys sync'
 alias at='anchor test --skip-local-validator'
 alias ad='anchor deploy --provider.cluster localnet'
 
+alias pab='pnpm approve-builds'
+
+hoist() {
+	local dir base parent
+	dir=$PWD
+	base=${dir:t}
+	parent=${dir:h}
+
+	# Safety guard: refuse to run in or above $HOME
+	if [[ "$dir" == "/" || "$dir" == "$HOME" || "$dir" == /home* ]]; then
+		print -r -- "Refusing to hoist from protected directory: $dir"
+		return 1
+	fi
+	if [[ "$parent" == "/" || "$parent" == "$HOME" || "$parent" == /home* ]]; then
+		print -r -- "Refusing to hoist into protected directory: $parent"
+		return 1
+	fi
+
+	# Temporarily allow globs that match nothing
+	setopt localoptions null_glob
+
+	# Move visible and hidden files (except . and ..)
+	mv -- $dir/* $dir/.[!.]* $parent/ 2>/dev/null
+
+	# Step up and remove the old directory
+	cd "$parent" || return
+	rmdir -- "$dir" 2>/dev/null && print -r -- "Hoisted '$base' into '$parent'"
+}
+
 ##### ALIASES END #####
 
 
 ##### PROMPT BEGIN #####
 
-PS1=$'
-🐸 \e[32m%n@%m\e[0m : \e[32m%~\e[0m
- %% \e[0m'
+PROMPT=$'
+🐸 %{\e[32m%}%n@%m%{\e[0m%} : %{\e[32m%}%~%{\e[0m%}
+ %% '
+
+RPROMPT=$'%{\e[2m%}%*%{\e[0m%}'
 
 ##### PROMPT END #####
 

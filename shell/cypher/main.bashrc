@@ -119,6 +119,8 @@ alias httpie='http -v --follow'
 alias b='batcat'
 alias bp='batcat --paging=always'
 
+alias m='micro'
+
 run-bg() { nohup "$@" > /dev/null 2>&1 & }
 
 # Git-related aliases

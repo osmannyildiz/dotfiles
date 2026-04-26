@@ -19,7 +19,7 @@ export const mainMacos: Profile = {
 			},
 		},
 	],
-	keybindings: [keybindingsChunks.mac],
+	keybindings: [keybindingsChunks.mac, keybindingsChunks.cursorMac],
 	snippets: [snippetsChunks.main],
 	extensions: [
 		extensionsChunks.base,
@@ -54,7 +54,7 @@ export const workMacos: Profile = {
 			},
 		},
 	],
-	keybindings: [keybindingsChunks.mac],
+	keybindings: [keybindingsChunks.mac, keybindingsChunks.cursorMac],
 	snippets: [],
 	extensions: [
 		extensionsChunks.base,
@@ -82,7 +82,7 @@ export const web3Macos: Profile = {
 			},
 		},
 	],
-	keybindings: [keybindingsChunks.mac],
+	keybindings: [keybindingsChunks.mac, keybindingsChunks.cursorMac],
 	snippets: [snippetsChunks.main],
 	extensions: [
 		extensionsChunks.base,

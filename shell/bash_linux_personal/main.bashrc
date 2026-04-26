@@ -137,9 +137,11 @@ alias httpie='http -v --follow'
 alias b='batcat'
 alias bp='batcat --paging=always'
 
+alias m='micro'
+
 run-bg() { nohup "$@" > /dev/null 2>&1 & }
 
-alias fx='run-bg open .'
+alias fx.='run-bg open .'
 alias ff='firefox -P'
 sudo-xed() { xed "admin://$1"; }
 
