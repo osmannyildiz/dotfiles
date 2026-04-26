@@ -16,8 +16,6 @@ fi
 
 export EDITOR=micro
 
-export MY_PYTHON_HOME="$HOME/aa/code/python"
-export PYTHONPATH="$MY_PYTHON_HOME"
 export PYTHONSTARTUP="$DOTFILES_DIR/python/pythonstartup.py"
 
 ### PATH Additions
@@ -204,16 +202,13 @@ alias ad='anchor deploy --provider.cluster localnet'
 
 alias pab='pnpm approve-builds'
 
-alias apache-status='service apache2 status'
-alias apache-start='sudo service apache2 start'
-alias apache-stop='sudo service apache2 stop'
-alias apache-restart='sudo service apache2 restart'
-alias apache-reload='sudo service apache2 reload'
-
-alias mysql-status='service mysql status'
-alias mysql-start='sudo service mysql start'
-alias mysql-stop='sudo service mysql stop'
-alias mysql-restart='sudo service mysql restart'
+alias caddy-status='service caddy status'
+alias caddy-start='sudo service caddy start'
+alias caddy-stop='sudo service caddy stop'
+alias caddy-restart='sudo service caddy restart'
+alias caddy-reload='sudo service caddy reload'
+alias caddy-edit='sudo micro /etc/caddy/Caddyfile'
+alias caddy-validate='sudo caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile'
 
 alias mongo-status='service mongod status'
 alias mongo-start='sudo service mongod start'
