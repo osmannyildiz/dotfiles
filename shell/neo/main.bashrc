@@ -202,6 +202,7 @@ alias ad='anchor deploy --provider.cluster localnet'
 
 alias pab='pnpm approve-builds'
 
+# Caddy-related aliases
 alias caddy-status='service caddy status'
 alias caddy-start='sudo service caddy start'
 alias caddy-stop='sudo service caddy stop'

@@ -148,6 +148,15 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gst="git stash"
 
+# Caddy-related aliases
+alias caddy-status='service caddy status'
+alias caddy-start='sudo service caddy start'
+alias caddy-stop='sudo service caddy stop'
+alias caddy-restart='sudo service caddy restart'
+alias caddy-reload='sudo service caddy reload'
+alias caddy-edit='sudo micro /etc/caddy/Caddyfile'
+alias caddy-validate='sudo caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile'
+
 ##### ALIASES END #####
 
 

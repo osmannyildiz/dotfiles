@@ -20,3 +20,7 @@ matches:
     replace: "🔥"
   - trigger: ";es"
     replace: "⭐️"
+  - trigger: ";el"
+    replace: "👍🏻"
+  - trigger: ";ed"
+    replace: "👎🏻"
