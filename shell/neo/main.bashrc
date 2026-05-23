@@ -212,7 +212,7 @@ alias deac='deactivate'
 alias py-init='python -m venv env && seba'
 py-new() { mkcd $1 && py-init; }
 alias pip-i='pip install -r requirements.txt'
-pip-add() { pip install $@ && printf "%s\n" $@ >> requirements.txt; }
+pip-add() { pip install "$@" && printf "%s\n" "$@" >> requirements.txt; }
 # py-run() {
 # 	local SCRIPT_NAME=$1;
 # 	shift;
@@ -241,8 +241,6 @@ alias ai='anchor init --template multiple'
 alias ab='anchor build && anchor keys sync'
 alias at='anchor test --skip-local-validator'
 alias ad='anchor deploy --provider.cluster localnet'
-
-alias pab='pnpm approve-builds'
 
 # Caddy-related aliases
 alias caddy-status='service caddy status'
