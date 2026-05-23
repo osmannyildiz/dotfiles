@@ -134,14 +134,14 @@ alias ga.="git add ."
 alias gc="git commit"
 alias gcm="git commit -m"
 gf() {
-  local y='\033[0;33m'
-  local w='\033[0m'
+  local y=$'\033[0;33m'
+  local w=$'\033[0m'
   echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
 So you probably don't need to use ${y}git fetch${w}."
 }
 gfa() {
-  local y='\033[0;33m'
-  local w='\033[0m'
+  local y=$'\033[0;33m'
+  local w=$'\033[0m'
   echo "⚠️ ${y}git fetch --all${w} fetches all branches from all remotes.
 ${y}git fetch${w} fetches all branches from origin.
 So you probably want to use ${y}git fetch${w}."
@@ -152,14 +152,14 @@ alias gpsuo="git push -u origin"
 alias gpsuom="git push -u origin main"
 alias gpl="git pull"
 gup() {
-  local y='\033[0;33m'
-  local w='\033[0m'
+  local y=$'\033[0;33m'
+  local w=$'\033[0m'
   echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
 So just use ${y}git pull${w} (alias: ${y}gpl${w})."
 }
 gco() {
-  local y='\033[0;33m'
-  local w='\033[0m'
+  local y=$'\033[0;33m'
+  local w=$'\033[0m'
   echo "⚠️ Stop using git checkout for everything!
 
 Switch to a branch:
