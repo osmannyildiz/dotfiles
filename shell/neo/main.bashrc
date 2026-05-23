@@ -149,20 +149,62 @@ alias ga="git add"
 alias ga.="git add ."
 alias gc="git commit"
 alias gcm="git commit -m"
-alias gf="git fetch"
-alias gfa="git fetch --all"
+gf() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
+So you probably don't need to use ${y}git fetch${w}."
+}
+gfa() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git fetch --all${w} fetches all branches from all remotes.
+${y}git fetch${w} fetches all branches from origin.
+So you probably want to use ${y}git fetch${w}."
+}
 alias gps="git push"
+alias gpsu="git push -u"
+alias gpsuo="git push -u origin"
 alias gpsuom="git push -u origin main"
 alias gpl="git pull"
-alias gup="git fetch --all && git pull"
-alias gco="git checkout"
+gup() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ ${y}git pull${w} also fetches all branches before attempting to fast-forward from upstream.
+So just use ${y}git pull${w} (alias: ${y}gpl${w})."
+}
+gco() {
+  local y='\033[0;33m'
+  local w='\033[0m'
+  echo "⚠️ Stop using git checkout for everything!
+
+Switch to a branch:
+${y}gco main${w} → ${y}gsw main${w}
+
+Create a new branch:
+${y}gco -b feat1${w} → ${y}gswc feat1${w}
+
+Create a new branch based on a commit:
+${y}gco -b feat1 1ee933a5${w} → ${y}gswc feat1 1ee933a5${w}
+
+Switch to a previous commit:
+${y}gco 1ee933a5${w} → ${y}gswd 1ee933a5${w}
+
+Switch to the N-th previous commit:
+${y}gco HEAD~1${w} → ${y}gswd HEAD~1${w}"
+}
 alias gb="git branch"
+alias gbl="git branch --color=always | grep -v '^\s*merged\/'"
 alias gr="git remote"
 alias gra="git remote add"
 alias grao="git remote add origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gst="git stash"
+alias gsw="git switch"
+alias gswc="git switch -c" # --create
+alias gswd="git switch -d" # --detach
+alias gmff="git merge --ff-only"
 
 # Python-related aliases
 alias seba='source env/bin/activate'
@@ -223,6 +265,8 @@ alias mongo-restart='sudo service mongod restart'
 #alias docker-status='systemctl --user status docker'
 #alias docker-start='systemctl --user start docker'
 #alias docker-stop='systemctl --user stop docker'
+
+alias pab='pnpm approve-builds'
 
 ##### ALIASES END #####
 
